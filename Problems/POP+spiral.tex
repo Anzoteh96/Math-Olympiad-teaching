@@ -1,0 +1,168 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amssymb, fullpage, mathrsfs, bm, pgf, tikz}
+
+\begin{document}
+
+\title{Tricks on radical axis, power of point}
+\author{Anzo Teh}
+\date{16 June 2016}
+\maketitle
+
+\section {P.O.P and radical axis}
+Some background knowledge:
+\begin{enumerate}
+\item The power of a point $A$ w.r.t. a circle with center $O$ and radius $r$ is given by $OA^2-r^2$. Denote this number as $P(A)$.
+\item Let $BC$ be a chord on the circle, and $A$ a point on line $BC$. Then $P(A)=$\\
+$\bullet AB\cdot AC$ for $A$ outside the chord (i.e. outside the circle).\\
+$\bullet -AB\cdot AC$ for $A$ on \emph{segment} $BC$ (i.e. inside the circle).\\
+$\bullet 0$ for $A$ on the circle (i.e. coinciding with $B$ or $C$).
+\item $P(A)$ is independent of chords passing through it. In other words if chords $BC$ and $DE$ intersect at $A$ then $AB\cdot AC=AD\cdot AE=|P(A)|$. (Property of a cyclic quadrilateral).
+\item The \emph{radical axis} of two circles is the line describing the locus of all points whose power of point are same to the two circles. (I.e. a point has equal P.O.P. w.r.t. the two circles iff it is on the radical axis).
+\item In particular, if the circles intersect at two points, then the line joining the two points is their radical axis.
+\item Given three circles $\omega_1$, $\omega_2$ and $\omega_3$ with non collinear centres. Let the radical axis of $\omega_i$ and $\omega_{i+1}$ be $\ell_{i+2}$. (Indices taken modulo 3). Then $\ell_1$, $\ell_2$ and $\ell_3$ are concurrent at the radical centre of the three circles (the radical centre is the unique point which has equal P.O.P w.r.t. the three circles).
+\item In case the centre of the three circles are collinear, then the three radical axes are parallel or coincide (in the latter case we say that the three circles are coaxial).
+\end{enumerate}
+
+\textbf{Problems.}
+\begin{enumerate}
+\item \emph {IMO 2006, G2.} Let $ ABCD$ be a trapezoid with parallel sides $ AB > CD$. Points $ K$ and $ L$ lie on the line segments $ AB$ and $ CD$, respectively, so that $AK/KB=DL/LC$. Suppose that there are points $ P$ and $ Q$ on the line segment $ KL$ satisfying \[\angle{APB} = \angle{BCD}\qquad\text{and}\qquad \angle{CQD} = \angle{ABC}.\] Prove that the points $ P$, $ Q$, $ B$ and $ C$ are concyclic.
+
+\item \emph{IMO 2008, \#1}. Let $ H$ be the orthocenter of an acute-angled triangle $ ABC$. The circle $ \Gamma_{A}$ centered at the midpoint of $ BC$ and passing through $ H$ intersects the sideline $ BC$ at points $ A_{1}$ and $ A_{2}$. Similarly, define the points $ B_{1}$, $ B_{2}$, $ C_{1}$ and $ C_{2}$.
+
+Prove that the six points $ A_{1}$, $ A_{2}$, $ B_{1}$, $ B_{2}$, $ C_{1}$ and $ C_{2}$ are concyclic.
+
+\item \emph{IMO 2008, G2.} Given trapezoid $ ABCD$ with parallel sides $ AB$ and $ CD$, assume that there exist points $ E$ on line $ BC$ outside segment $ BC$, and $ F$ inside segment $ AD$ such that $ \angle DAE = \angle CBF$. Denote by $ I$ the point of intersection of $ CD$ and $ EF$, and by $ J$ the point of intersection of $ AB$ and $ EF$. Let $ K$ be the midpoint of segment $ EF$, assume it does not lie on line $ AB$. Prove that $ I$ belongs to the circumcircle of $ ABK$ if and only if $ K$ belongs to the circumcircle of $ CDJ$.
+
+\item \emph{IMO 2008, G3.} Let $ ABCD$ be a convex quadrilateral and let $ P$ and $ Q$ be points in $ ABCD$ such that $ PQDA$ and $ QPBC$ are cyclic quadrilaterals. Suppose that there exists a point $ E$ on the line segment $ PQ$ such that $ \angle PAE = \angle QDE$ and $ \angle PBE = \angle QCE$. Show that the quadrilateral $ ABCD$ is cyclic.
+
+\item\emph {IMO 2009. \#2.} Let $ ABC$ be a triangle with circumcentre $ O$. The points $ P$ and $ Q$ are interior points of the sides $ CA$ and $ AB$ respectively. Let $ K,L$ and $ M$ be the midpoints of the segments $ BP,CQ$ and $ PQ$. respectively, and let $ \Gamma$ be the circle passing through $ K,L$ and $ M$. Suppose that the line $ PQ$ is tangent to the circle $ \Gamma$. Prove that $ OP = OQ.$
+
+\item\emph {IMO 2009, G3.} Let $ABC$ be a triangle. The incircle of $ABC$ touches the sides $AB$ and $AC$ at the points $Z$ and $Y$, respectively. Let $G$ be the point where the lines $BY$ and $CZ$ meet, and let $R$ and $S$ be points such that the two quadrilaterals $BCYR$ and $BCSZ$ are parallelogram.
+Prove that $GR=GS$.
+
+\item\emph {IMO 2011, G2.} Let $A_1A_2A_3A_4$ be a non-cyclic quadrilateral. Let $O_1$ and $r_1$ be the circumcentre and the circumradius of the triangle $A_2A_3A_4$. Define $O_2,O_3,O_4$ and $r_2,r_3,r_4$ in a similar way. Prove that
+\[\frac{1}{O_1A_1^2-r_1^2}+\frac{1}{O_2A_2^2-r_2^2}+\frac{1}{O_3A_3^2-r_3^2}+\frac{1}{O_4A_4^2-r_4^2}=0.\]
+
+\item\emph {IMO 2011, G4.} Let $ABC$ be an acute triangle with circumcircle $\Omega$. Let $B_0$ be the midpoint of $AC$ and let $C_0$ be the midpoint of $AB$. Let $D$ be the foot of the altitude from $A$ and let $G$ be the centroid of the triangle $ABC$. Let $\omega$ be a circle through $B_0$ and $C_0$ that is tangent to the circle $\Omega$ at a point $X\not= A$. Prove that the points $D,G$ and $X$ are collinear.
+
+\item\emph {IMO 2011, G5.} Let $ABC$ be a triangle with incentre $I$ and circumcircle $\omega$. Let $D$ and $E$ be the second intersection points of $\omega$ with $AI$ and $BI$, respectively. The chord $DE$ meets $AC$ at a point $F$, and $BC$ at a point $G$. Let $P$ be the intersection point of the line through $F$ parallel to $AD$ and the line through $G$ parallel to $BE$. Suppose that the tangents to $\omega$ at $A$ and $B$ meet at a point $K$. Prove that the three lines $AE,BD$ and $KP$ are either parallel or concurrent.
+
+\item\emph {IMO 2012, G4.} Let $ABC$ be a triangle with $AB \neq AC$ and circumcenter $O$. The bisector of $\angle BAC$ intersects $BC$ at $D$. Let $E$ be the reflection of $D$ with respect to the midpoint of $BC$. The lines through $D$ and $E$ perpendicular to $BC$ intersect the lines $AO$ and $AD$ at $X$ and $Y$ respectively. Prove that the quadrilateral $BXCY$ is cyclic.
+
+\item\emph {IMO 2012, \#5.} Let $ABC$ be a triangle with $\angle BCA=90^{\circ}$, and let $D$ be the foot of the altitude from $C$. Let $X$ be a point in the interior of the segment $CD$. Let $K$ be the point on the segment $AX$ such that $BK=BC$. Similarly, let $L$ be the point on the segment $BX$ such that $AL=AC$. Let $M$ be the point of intersection of $AL$ and $BK$.
+
+Show that $MK=ML$.
+
+\end{enumerate}
+
+\section {Extra problems on spiral similarity.}
+\begin {enumerate}
+
+\item\emph{IMO 2006, G8.} Let $ABCD$ be a convex quadrilateral. A circle passing through the points $A$ and $D$ and a circle passing through the points $B$ and $C$ are externally tangent at a point $P$ inside the quadrilateral. Suppose that \[\angle{PAB}+\angle{PDC}\leq 90^\circ\qquad\text{and}\qquad\angle{PBA}+\angle{PCD}\leq 90^\circ.\] Prove that $AB+CD \geq BC+AD$.
+
+\item\emph {IMO 2013, G5.} Let $ABCDEF$ be a convex hexagon with $AB=DE$, $BC=EF$, $CD=FA$, and $\angle A-\angle D = \angle C -\angle F = \angle E -\angle B$. Prove that the diagonals $AD$, $BE$, and $CF$ are concurrent.
+
+\item\emph {IMO 2013, \#3.} Let the excircle of triangle $ABC$ opposite the vertex $A$ be tangent to the side $BC$ at the point $A_1$. Define the points $B_1$ on $CA$ and $C_1$ on $AB$ analogously, using the excircles opposite $B$ and $C$, respectively. Suppose that the circumcentre of triangle $A_1B_1C_1$ lies on the circumcircle of triangle $ABC$. Prove that triangle $ABC$ is right-angled.
+
+\end{enumerate}
+\section{Location of solutions.}
+Note: by the meaning of "official solution" of IMO shortlist it means the solution in the IMO shortlist, found here: http://imo-official.org/problems.aspx
+
+\textbf {P.O.P.}
+\begin{enumerate}
+\item Official solution 1 (page 36.)
+\item Official solution 2 (page 30.)
+\item Official solution (page 31.)
+\item Official solution (both) (pages 32, 33).
+\item Official solution 1 (page 50).
+\item Official solution (page 52).
+\item Official aolution (page 46).
+\item Official solution (page 50).
+\item Official solution (page 52).
+\item Official solution (page 32).
+\item Official solution (page 34).
+\end{enumerate}
+
+\textbf {Spirals.}
+\begin{enumerate}
+\item As in handout.
+\item As in handout.
+\item Official solution 1 (page 49).
+\end{enumerate}
+
+\section{Appendix: solution to IMO 2006, G8.}
+
+For any circle passing through $A$ and $D$, define the \emph{angle of circle} by $\angle AQD$ for any point $Q$ inside the quadrilateral $ABCD$ and on the arc $AD$. Define similarly for circle passing through $B$ and $C$. From the problem we know that $\angle APD+\angle BPC\le 180^{\circ}$. Define the circle pasing through $A$ and $D$ as $\omega_1$., and the circle through $B$ and $C$ as $\omega$. Let another circle $\omega_2$ to pass through $B$ and $C$ such that sum of angles of $\omega_2$ and $\omega_1$ is $180^{\circ}$. Since angle of $\omega_2$, noted as $\angle\omega_2$ is at least $\omega$, the region determined by line $BC$ and arc $BC$ of $\omega_2$ is inside the quadrilateral lies inside the region of line $BC$ and arc $BC$ of $\omega$. We infer that $\omega_1$ and $\omega_2$ are either externall tangent to each other, or are mutually exclusive.
+
+\definecolor{qqwwtt}{rgb}{0.2,0.2,0.2}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(1.6175688388133207,-0.8145420431579014) rectangle (11.74336259408353,4.089864149612101);
+\draw(2.8782741865347026,1.4901766659220776) circle (0.9422091800195158cm);
+\draw(5.740019266235631,1.3984748945683643) circle (1.9210047686860083cm);
+\draw(6.921609681492272,2.239607860454135) circle (1.556102592908331cm);
+\draw (2.041188424475112,1.9226643141505124)-- (3.4391030489348036,0.7330577016819413);
+\draw (3.4391030489348036,0.7330577016819413)-- (7.5740115330091875,0.8268704100432901);
+\draw (7.5740115330091875,0.8268704100432901)-- (5.800283094610963,3.3185341624827513);
+\draw (2.041188424475112,1.9226643141505124)-- (5.800283094610963,3.3185341624827513);
+\begin{scriptsize}
+\draw [fill=qqwwtt] (3.82,1.46) circle (2.5pt);
+\draw[color=qqwwtt] (3.9773190356936823,1.4923779254340928) node {$P$};
+\draw[color=black] (2.6213431762922808,2.2496111975673427) node {$\omega_1$};
+\draw[color=black] (4.5320364327215295,2.6810580619223336) node {$\omega$};
+\draw [fill=qqwwtt] (2.041188424475112,1.9226643141505124) circle (2.5pt);
+\draw[color=qqwwtt] (2.2779466924178995,1.959044941981328) node {$A$};
+\draw [fill=qqwwtt] (5.800283094610963,3.3185341624827513) circle (2.5pt);
+\draw[color=qqwwtt] (5.667886340921404,3.5615618667284386) node {$B$};
+\draw [fill=qqwwtt] (7.5740115330091875,0.8268704100432901) circle (2.5pt);
+\draw[color=qqwwtt] (7.675435015879324,0.7527547293969649) node {$C$};
+\draw [fill=qqwwtt] (3.4391030489348036,0.7330577016819413) circle (2.5pt);
+\draw[color=qqwwtt] (3.413796600617775,0.981685718646552) node {$D$};
+\draw[color=black] (6.962226933986379,3.7728827798819036) node {$\omega_2$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\usetikzlibrary{arrows}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{sqsqsq}{rgb}{0.12549019607843137,0.12549019607843137,0.12549019607843137}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-5.521881362707794,-2.8887652943364652) rectangle (7.461019028529079,3.3994742864626195);
+\draw (2.466866536378781,1.2912878347185939)-- (1.87,-1.644);
+\draw (2.466866536378781,1.2912878347185939)-- (4.409850190732456,2.896733555659639);
+\draw (4.409850190732456,2.896733555659639)-- (7.18,-1.1);
+\draw (1.87,-1.644)-- (7.18,-1.1);
+\draw (0.9397699999938708,2.7883174030459226)-- (2.466866536378781,1.2912878347185939);
+\draw (0.9397699999938708,2.7883174030459226)-- (4.409850190732456,2.896733555659639);
+\draw (2.466866536378781,1.2912878347185939)-- (3.7809132907594187,1.6794350944113072);
+\draw (3.7809132907594187,1.6794350944113072)-- (4.409850190732456,2.896733555659639);
+\draw (0.9397699999938708,2.7883174030459226)-- (1.87,-1.644);
+\draw (0.9397699999938708,2.7883174030459226)-- (7.18,-1.1);
+\draw (1.87,-1.644)-- (4.641073609944058,-2.504997920593652);
+\draw (4.641073609944058,-2.504997920593652)-- (7.18,-1.1);
+\draw (0.9397699999938708,2.7883174030459226)-- (3.7809132907594187,1.6794350944113072);
+\draw (0.9397699999938708,2.7883174030459226)-- (4.641073609944058,-2.504997920593652);
+\begin{scriptsize}
+\draw [fill=sqsqsq] (1.87,-1.644) circle (2.5pt);
+\draw[color=sqsqsq] (1.951753471204215,-1.443712033398794) node {$B$};
+\draw [fill=sqsqsq] (7.18,-1.1) circle (2.5pt);
+\draw[color=sqsqsq] (7.257808413709719,-0.9018170605471673) node {$C$};
+\draw [fill=uuuuuu] (2.466866536378781,1.2912878347185939) circle (1.5pt);
+\draw[color=uuuuuu] (2.5500958370612192,1.4463944884765483) node {$A$};
+\draw [fill=uuuuuu] (4.409850190732456,2.896733555659639) circle (1.5pt);
+\draw[color=uuuuuu] (4.491886156446212,3.049500449829277) node {$D$};
+\draw [fill=uuuuuu] (0.9397699999938708,2.7883174030459226) circle (1.5pt);
+\draw[color=uuuuuu] (0.867963525500963,2.981763578222824) node {$N$};
+\draw [fill=uuuuuu] (3.7809132907594187,1.6794350944113072) circle (1.5pt);
+\draw[color=uuuuuu] (3.9499911835945865,1.7399209321045128) node {$O_1$};
+\draw [fill=uuuuuu] (4.641073609944058,-2.504997920593652) circle (1.5pt);
+\draw[color=uuuuuu] (4.841859993079554,-2.4936335432988206) node {$O_2$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Denote by $O_1$ and $O_2$ the centres of $\omega_1$ and $\omega_2$, respectively, and their radii as $r_1, r_2$. From above we have $O_1O_2\ge r_1+r_2$. To prove $O_1O_2\ge r_1+r_2\Rightarrow AB+CD\ge AD+BC$, it suffices to proe that $\dfrac{AB+CD}{O_1O_2}\ge\dfrac{AD+BC}{r_1+r_2}$.
+
+Assuming $ABCD$ is not a parallelogram, let $N$ be the centre of spiral similarity that brings $A$ to $B$ and $D$ to $C$. Since triangles $AO_1D$ and $BO_2C$ are similar (including the degenerate case where $O_1$ and $O_2$ are mispoints of $AD$ and $BC$, respectively), this spiral similarity also brings $O_1$ to $O_2$. We therefore know that triangles $NO_1O_2$, $NAB$ and $NDC$ are similar. Therefore, $\dfrac{AB}{NA}=\dfrac{CD}{ND}=\dfrac{O_1O_2}{NO_1}$ and we have $\dfrac{AB+CD}{O_1O_2}=\dfrac{NA+ND}{NO_1}$. On the other hand, from the similarities of triangles $BO_2C$ and $AO_1D$, and the fact that $r_1=AO_1=O_1D$, $r_2=BO_2=CO_2$ we have $\dfrac{AD}{r_1}$=$\dfrac{BC}{r_2}$=${AD+BC}{r_1+r_2}$. The whole inequality now becomes $\dfrac{NA+ND}{NO_1}\ge \dfrac{AD}{r_1}$, or $NA\cdot DO_1+ND\cdot AO_1\ge AD\dot NO_1$. This is  obvious by Ptolemy's inequality, with equality holds iff $N,A,O_1,D$ concyclic or collinear in this order.
+
+Finally, for case where $ABCD$ is a parallelogram, it is not difficult to verify that $O_1O_2=AB=CD$, while $r_1=r_2\ge \frac{AD}{2}=\frac{BC}{2}$. Therefore $AB=O_1O_2\ge r_1+r_2\ge\frac{AD}{2}+\frac{BC}{2}$ means $AB+CD\ge BC+AD$. Q.E.D.
+
+\end{document}
+
