@@ -1,0 +1,153 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amssymb, fullpage, mathrsfs, bm, pgf, tikz}
+
+\begin{document}
+
+\title{Olympiad functions.}
+\author{Anzo Teh}
+\date{18 July 2016}
+\maketitle
+
+\section{IMO}
+\begin{enumerate}
+\item\emph{2015/5.} Let $\mathbb R$ be the set of real numbers. Determine all functions $f:\mathbb R\to\mathbb R$ that satisfy the equation\[f(x+f(x+y))+f(xy)=x+f(x+y)+yf(x)\]for all real numbers $x$ and $y$.
+
+\item\emph{2013/5.} Let $\mathbb Q_{>0}$ be the set of all positive rational numbers. Let $f:\mathbb Q_{>0}\to\mathbb R$ be a function satisfying the following three conditions:
+
+(i) for all $x,y\in\mathbb Q_{>0}$, we have $f(x)f(y)\geq f(xy)$;\\
+(ii) for all $x,y\in\mathbb Q_{>0}$, we have $f(x+y)\geq f(x)+f(y)$;\\
+(iii) there exists a rational number $a>1$ such that $f(a)=a$.
+
+Prove that $f(x)=x$ for all $x\in\mathbb Q_{>0}$
+
+\item\emph{2012/4.} Find all functions $f:\mathbb Z\rightarrow \mathbb Z$ such that, for all integers $a,b,c$ that satisfy $a+b+c=0$, the following equality holds:
+\[f(a)^2+f(b)^2+f(c)^2=2f(a)f(b)+2f(b)f(c)+2f(c)f(a).\]
+(Here $\mathbb{Z}$ denotes the set of integers.)
+
+\item\emph{2011/3.} Let $f : \mathbb R \to \mathbb R$ be a real-valued function defined on the set of real numbers that satisfies
+\[f(x + y) \leq yf(x) + f(f(x))\]
+for all real numbers $x$ and $y$. Prove that $f(x) = 0$ for all $x \leq 0$.
+
+\item\emph{2011/5.}  Let $f$ be a function from the set of integers to the set of positive integers. Suppose that, for any two integers $m$ and $n$, the difference $f(m) - f(n)$ is divisible by $f(m- n)$. Prove that, for all integers $m$ and $n$ with $f(m) \leq f(n)$, the number $f(n)$ is divisible by $f(m)$.
+
+\item\emph{2010/1.} Find all function $f:\mathbb{R}\rightarrow\mathbb{R}$ such that for all $x,y\in\mathbb{R}$ the following equality holds \[ f(\left\lfloor x\right\rfloor y)=f(x)\left\lfloor f(y)\right\rfloor \] where $\left\lfloor a\right\rfloor $ is greatest integer not greater than $a.$
+
+\item\emph{2010/3.} Find all functions $g:\mathbb{N}\rightarrow\mathbb{N}$ such that \[\left(g(m)+n\right)\left(g(n)+m\right)\] is a perfect square for all $m,n\in\mathbb{N}.$
+
+\item\emph{2009/5.} Determine all functions $ f$ from the set of positive integers to the set of positive integers such that, for all positive integers $ a$ and $ b$, there exists a non-degenerate triangle with sides of lengths
+\[ a, f(b) \text{ and } f(b + f(a) - 1).\]
+(A triangle is non-degenerate if its vertices are not collinear.)
+
+\item\emph{2008/4.} Find all functions $ f: (0, \infty) \mapsto (0, \infty)$ (so $ f$ is a function from the positive real numbers) such that
+\[ \frac {\left( f(w) \right)^2 + \left( f(x) \right)^2}{f(y^2) + f(z^2) } = \frac {w^2 + x^2}{y^2 + z^2} \]
+for all positive real numbers $ w,x,y,z,$ satisfying $ wx = yz.$
+
+\item\emph{2002/5.} Find all functions $f$ from the reals to the reals such that \[ \left(f(x)+f(z)\right)\left(f(y)+f(t)\right)=f(xy-zt)+f(xt+yz) \] for all real $x,y,z,t$.
+
+\end{enumerate}
+
+\section{APMO}
+\begin{enumerate}
+\item\emph{2016/5.} Find all functions $f: \mathbb{R}^+ \to \mathbb{R}^+$ such that
+$$(z + 1)f(x + y) = f(xf(z) + y) + f(yf(z) + x),$$for all positive real numbers $x, y, z$.
+
+\item\emph{2015/2.} Let $S = \{2, 3, 4, \ldots\}$ denote the set of integers that are greater than or equal to $2$. Does there exist a function $f : S \to S$ such that \[f (a)f (b) = f (a^2 b^2 )\text{ for all }a, b \in S\text{ with }a \ne b?\]
+
+\item\emph{2011/5.} Determine all functions $f:\mathbb{R}\to\mathbb{R}$, where $\mathbb{R}$ is the set of all real numbers, satisfying the following two conditions:\\
+1) There exists a real number $M$ such that for every real number $x,f(x)<M$ is satisfied.\\
+2) For every pair of real numbers $x$ and $y$,
+\[ f(xf(y))+yf(x)=xf(y)+f(xy)\]
+is satisfied.
+
+\item\emph{2010/5.} Find all functions $f$ from the set $\mathbb{R}$ of real numbers into $\mathbb{R}$ which satisfy for all $x, y, z \in \mathbb{R}$ the identity $f(f(x)+f(y)+f(z))=f(f(x)-f(y))+f(2xy+f(z))+2f(xz-yz)$
+
+\item\emph{2008/4.} Consider the function $ f: \mathbb{N}_0\to\mathbb{N}_0$, where $ \mathbb{N}_0$ is the set of all non-negative
+integers, defined by the following conditions :
+
+$ (i)$ $ f(0) = 0$;\\ $ (ii)$ $ f(2n) = 2f(n)$ and \\$ (iii)$ $ f(2n + 1) = n + 2f(n)$ for all $ n\geq 0$.
+
+$ (a)$ Determine the three sets $ L = \{ n | f(n) < f(n + 1) \}$, $ E = \{n | f(n) = f(n + 1) \}$, and $ G = \{n | f(n) > f(n + 1) \}$.\\
+$ (b)$ For each $ k \geq 0$, find a formula for $ a_k = \max\{f(n) : 0 \leq n \leq 2^k\}$ in terms of $ k$.
+
+\end{enumerate}
+
+\section{TOT}
+\begin{enumerate}
+\item Do there exists two functions $f$ an $g$ (integer to integer) such that for every integers $x$,\\
+(i) $f(f(x))=x$, $g(g(x))=x$, $f(g(x))>x$, $g(f(x))>x$,\\
+(ii) $f(f(x))<x$, $g(g(x))<x$, $f(g(x))>x$, $g(f(x))>x.$
+\end{enumerate}
+
+\section{IMO Shortlist}
+(ISL 2015)
+\begin{enumerate}
+\item Determine all functions $f:\mathbb{Z}\rightarrow\mathbb{Z}$ with the property that \[f(x-f(y))=f(f(x))-f(y)-1\]holds for all $x,y\in\mathbb{Z}$.
+
+\item Let $2\mathbb{Z} + 1$ denote the set of odd integers. Find all functions $f:\mathbb{Z} \mapsto 2\mathbb{Z} + 1$ satisfying \[ f(x + f(x) + y) + f(x - f(x) - y) = f(x+y) + f(x-y) \]for every $x, y \in \mathbb{Z}$.
+
+\item Let $\mathbb{Z}_{>0}$ denote the set of positive integers. Consider a function $f: \mathbb{Z}_{>0} \to \mathbb{Z}_{>0}$. For any $m, n \in \mathbb{Z}_{>0}$ we write $f^n(m) = \underbrace{f(f(\ldots f}_{n}(m)\ldots))$. Suppose that $f$ has the following two properties:
+
+(i) if $m, n \in \mathbb{Z}_{>0}$, then $\frac{f^n(m) - m}{n} \in \mathbb{Z}_{>0}$;\\
+(ii) The set $\mathbb{Z}_{>0} \setminus \{f(n) \mid n\in \mathbb{Z}_{>0}\}$ is finite.
+
+Prove that the sequence $f(1) - 1, f(2) - 2, f(3) - 3, \ldots$ is periodic.
+
+\item Let $\mathbb{Z}_{>0}$ denote the set of positive integers. For any positive integer $k$, a function $f: \mathbb{Z}_{>0} \to \mathbb{Z}_{>0}$ is called $k$-good if $\gcd(f(m) + n, f(n) + m) \le k$ for all $m \neq n$. Find all $k$ such that there exists a $k$-good function.
+
+\item For every positive integer $n$ with prime factorization $n = \prod_{i = 1}^{k} p_i^{\alpha_i}$, define
+\[\mho(n) = \sum_{i: \; p_i > 10^{100}} \alpha_i.\]That is, $\mho(n)$ is the number of prime factors of $n$ greater than $10^{100}$, counted with multiplicity.
+
+Find all strictly increasing functions $f: \mathbb{Z} \to \mathbb{Z}$ such that
+\[\mho(f(a) - f(b)) \le \mho(a - b) \quad \text{for all integers } a \text{ and } b \text{ with } a > b.\]
+
+(ISL 2014)
+\item Determine all functions $f: \mathbb{Z}\to\mathbb{Z}$ satisfying \[f\big(f(m)+n\big)+f(m)=f(n)+f(3m)+2014\] for all integers $m$ and $n$.
+
+\item Find all functions $f : \mathbb{Z} \to\mathbb{ Z}$ such that
+\[ n^2+4f(n)=f(f(n))^2 \]
+for all $n\in \mathbb{Z}$.
+
+(ISL 2013)
+\item Let $\mathbb{Z}_{\ge 0}$ be the set of all nonnegative integers. Find all the functions $f: \mathbb{Z}_{\ge 0} \rightarrow \mathbb{Z}_{\ge 0} $ satisfying the relation
+\[ f(f(f(n))) = f(n+1 ) +1 \]
+for all $ n\in \mathbb{Z}_{\ge 0}$.
+
+\item Let $\mathbb{Z} _{>0}$ be the set of positive integers. Find all functions $f: \mathbb{Z} _{>0}\rightarrow \mathbb{Z} _{>0}$ such that
+\[ m^2 + f(n) \mid mf(m) +n \]
+for all positive integers $m$ and $n$.
+
+\item Determine all functions $f: \mathbb{Q} \rightarrow \mathbb{Z} $ satisfying
+\[ f \left( \frac{f(x)+a} {b}\right) = f \left( \frac{x+a}{b} \right) \]
+for all $x \in \mathbb{Q}$, $a \in \mathbb{Z}$, and $b \in \mathbb{Z}_{>0}$. (Here, $\mathbb{Z}_{>0}$ denotes the set of positive integers.)
+
+(ISL 2012)
+\item Find all functions $f:\mathbb{R} \rightarrow \mathbb{R}$ that satisfy the conditions
+\[f(1+xy)-f(x+y)=f(x)f(y) \quad \text{for all } x,y \in \mathbb{R},\]
+and $f(-1) \neq 0$.
+
+\item Let $f: \mathbb{N} \rightarrow \mathbb{N}$ be a function, and let $f^m$ be $f$ applied $m$ times. Suppose that for every $n \in \mathbb{N}$ there exists a $k \in \mathbb{N}$ such that $f^{2k}(n)=n+k$, and let $k_n$ be the smallest such $k$. Prove that the sequence $k_1,k_2,\ldots $ is unbounded.
+
+(ISL 2011)
+\item Determine all pairs $(f,g)$ of functions from the set of real numbers to itself that satisfy \[g(f(x+y)) = f(x) + (2x + y)g(y)\] for all real numbers $x$ and $y$.
+
+\item Determine all pairs $(f,g)$ of functions from the set of positive integers to itself that satisfy \[f^{g(n)+1}(n) + g^{f(n)}(n) = f(n+1) - g(n+1) + 1\] for every positive integer $n$. Here, $f^k(n)$ means $\underbrace{f(f(\ldots f)}_{k}(n) \ldots ))$.
+
+\item Let $n \geq 1$ be an odd integer. Determine all functions $f$ from the set of integers to itself, such that for all integers $x$ and $y$ the difference $f(x)-f(y)$ divides $x^n-y^n.$
+
+(ISL 2010)
+\item Denote by $\mathbb{Q}^+$ the set of all positive rational numbers. Determine all functions $f : \mathbb{Q}^+ \mapsto \mathbb{Q}^+$ which satisfy the following equation for all $x, y \in \mathbb{Q}^+:$ \[f\left( f(x)^2y \right) = x^3 f(xy).\]
+
+\item Suppose that $f$ and $g$ are two functions defined on the set of positive integers and taking positive integer values. Suppose also that the equations $f(g(n)) = f(n) + 1$ and $g(f(n)) = g(n) + 1$ hold for all positive integers. Prove that $f(n) = g(n)$ for all positive integer $n.$
+
+(ISL 2009)
+\item Let $f$ be any function that maps the set of real numbers into the set of real numbers. Prove that there exist real numbers $x$ and $y$ such that \[f\left(x-f(y)\right)>yf(x)+x\]
+
+\item Find all functions $f$ from the set of real numbers into the set of real numbers which satisfy for all $x$, $y$ the identity \[ f\left(xf(x+y)\right) = f\left(yf(x)\right) +x^2\]
+
+\item Let $f$ be a non-constant function from the set of positive integers into the set of positive integer, such that $a-b$ divides $f(a)-f(b)$ for all distinct positive integers $a$, $b$. Prove that there exist infinitely many primes $p$ such that $p$ divides $f(c)$ for some positive integer $c$.
+
+\item Let $P(x)$ be a non-constant polynomial with integer coefficients. Prove that there is no function $T$ from the set of integers into the set of integers such that the number of integers $x$ with $T^n(x)=x$ is equal to $P(n)$ for every $n\geq 1$, where $T^n$ denotes the $n$-fold application of $T$.
+
+\end{enumerate}
+
+\end{document}
