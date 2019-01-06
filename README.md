@@ -26,3 +26,5 @@ Week 11: Probabilistic method
 
 Week 12: Miscellaneous combinatorics
 
+Edit: I also uploaded some notes I wrote for the IMO training camps for self-reference purposes 
+
