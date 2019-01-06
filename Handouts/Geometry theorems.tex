@@ -1,0 +1,333 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amssymb, fullpage, mathrsfs, pgf, tikz}
+
+\begin{document}
+
+\title{IMO 2016 Training Camp 4}
+\author{Three theorems in geometry}
+\date{9 April 2016}
+\maketitle
+
+\section {Simson's theorem}
+
+\textbf {Statement.} Given a point $D$ and a triangle $ABC$, the feet of perpendiculars from $D$ to sides $BC, CA, AB$ are collinear iff $D$ lies on the circumcircle of triangle $ABC$. (Proof? Simple angle chasing, or better still, oriented angle.)
+
+Looks simple? The application to this theorem can be very very profound.
+
+\begin {enumerate}
+\item\emph {IMO 2003, \#4.} Let $ABCD$ be a cyclic quadrilateral. Let $P,Q,R$ be the feet of the perpendiculars from $D$ to the lines $BC, CA, AB$ respectively. Show that $PQ=QR$ if and only if the bisectors of $\angle ABC$ and $\angle ADC$ are concurrent with $AC$.\\
+\textbf {Solution.} By Simson's theorem $P,Q,R$ are collinear. Now $\frac{PQ}{QR}=\frac{PD}{DR}\cdot\frac{\sin\angle PDQ}{\sin\angle QDR}=\frac{PD}{DR}\cdot\frac{\sin\angle BAC}{\sin\angle BCA}=\frac{PD}{DR}\cdot\frac{BC}{BA}.$ Now $\frac{PD}{DR}=\frac{\sin\angle PBD}{\sin\angle RBD}=\frac{\sin\angle ACD}{\sin\angle CAD}=\frac{AD}{CD}$. Therefore $\frac{PQ}{QR}=\frac{AD}{CD}\cdot\frac{BC}{BA}$, from which we know that the ratio is 1 iff $\frac{BA}{BC}=\frac{AD}{CD}$, which is equivalent to that the internal angle bisectors of $\angle B$ and $\angle D$ concur on $AC$. $\blacksquare$
+
+\item\emph {IMO 2007, \#2.} Consider  five  points $A,B,C,D$ and $E$ such that $ABCD$ is a parallelogram and $BCED$ is a cyclic quadrilateral. Let $\ell$ be a line passing through $A$. Suppose that $\ell$ intersects the interior of the segment $DC$ at $F$ and intersects line $BC$ at $G$. Suppose also that $EF=EG=EC$. Prove that $\ell$ is the bisector of angle $DAB$.\\
+\textbf{Solution.} \usetikzlibrary{arrows}
+
+
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.0484913598797863,-1.4378317054845948) rectangle (16.2317490608565,6.931815176558982);
+\draw [dotted] (4.819103214890018,2.83401353637902) circle (3.367411105831274cm);
+\draw (1.66,4.)-- (8.12,3.5);
+\draw (1.66,4.)-- (-0.18,0.3);
+\draw (-0.18,0.3)-- (6.28,-0.2);
+\draw (6.28,-0.2)-- (9.16508976304108,5.601539197419559);
+\draw (7.084269051983753,5.325695957182129)-- (8.64254488152054,4.55076959870978);
+\draw (7.084269051983753,5.325695957182129)-- (6.949970568726939,3.5905595535041064);
+\draw (1.66,4.)-- (6.28,-0.2);
+\draw (3.97,1.9)-- (8.64254488152054,4.55076959870978);
+\draw (-0.18,0.3)-- (9.16508976304108,5.601539197419559);
+\draw (8.12,3.5)-- (4.4809230667971764,1.4355244847298394);
+\begin{scriptsize}
+\draw [fill=qqqqff] (1.66,4.) circle (2.5pt);
+\draw[color=qqqqff] (1.5660841472577043,4.242108189331333) node {$D$};
+\draw [fill=qqqqff] (-0.18,0.3) circle (2.5pt);
+\draw[color=qqqqff] (-0.23707137490608232,0.5456393688955705) node {$A$};
+\draw [fill=qqqqff] (6.28,-0.2) circle (2.5pt);
+\draw[color=qqqqff] (6.4195777610818965,-0.2958332081141965) node {$B$};
+\draw [fill=uuuuuu] (3.97,1.9) circle (1.5pt);
+\draw[color=uuuuuu] (4.075475582268973,2.108374154770852) node {$R$};
+\draw [fill=qqqqff] (8.12,3.5) circle (2.5pt);
+\draw[color=qqqqff] (8.28283846731781,3.6260300525920397) node {$C$};
+\draw [fill=uuuuuu] (9.16508976304108,5.601539197419559) circle (1.5pt);
+\draw[color=uuuuuu] (9.274574004507892,5.804842975206615) node {$G$};
+\draw [fill=uuuuuu] (5.77994113745388,3.681119107008214) circle (1.5pt);
+\draw[color=uuuuuu] (5.878631104432761,3.8965033809166076) node {$F$};
+\draw [fill=uuuuuu] (7.084269051983753,5.325695957182129) circle (1.5pt);
+\draw[color=uuuuuu] (7.185918858001505,5.5343696468820465) node {$E$};
+\draw [fill=uuuuuu] (6.949970568726939,3.5905595535041064) circle (1.5pt);
+\draw[color=uuuuuu] (7.050682193839221,3.8063456048084183) node {$P$};
+\draw [fill=uuuuuu] (8.64254488152054,4.55076959870978) circle (1.5pt);
+\draw[color=uuuuuu] (8.748653643876787,4.60273929376409) node {$Q$};
+\draw [fill=uuuuuu] (3.459076933202824,2.36447551527016) circle (1.5pt);
+\draw[color=uuuuuu] (3.5645815176559013,2.5741893313298307) node {$X$};
+\draw [fill=uuuuuu] (4.4809230667971764,1.4355244847298394) circle (1.5pt);
+\draw[color=uuuuuu] (4.586369646882046,1.642558978211874) node {$Z$};
+\end{scriptsize}
+\end{tikzpicture}
+
+
+Obviously $E$ is the circumcenter of triangle $CFG$. If we denote $P$ as the midpoint of $CF$ and $Q$ the midpoint of $CG$, then $EP\perp CD$ and $EQ\perp BC$. Notice also that $PQ\parallel\ell$. Let the perpendicular from $E$ to $BD$ intersect at $R$, then $P,Q,R$ are collinear by Simson's theorem. 
+
+Let $\ell$ intersect $BD$ at $X$, and let the line parallel to $\ell$, passing through $C$ intersect $BD$ at $Z$. Now $PQ\parallel\ell$ implies $R$ is the midpoint of $XZ$. But since $ABCD$ is a parallelogram, $X$ and $Z$ are the reflections of each other in the midpoint of $BD$. (Proof: triangles $ABD$ and $CDB$ are congruent, so the triangles in the following pairs are also congruent: \{$ADX, CBZ$\},\{$ABX,CDZ$\}.) This implies that $R$ is the midpoint of $BD$ and since $ER\perp BD$, $EB=ED$ and from the fact that $E$ lies on the circumcircle of $CBD$ we know that $EC$ is the external angle bisector of $\angle BCD$. This implies that $CF=CG$, so $\angle DAF=\angle FGC=\angle GFC=\angle GAB$. (elegant, no?) $\blacksquare$
+
+
+\item\emph{TOT Spring Fall 2008, Senior A-Level, \#7.} Each of three lines cuts chords of equal lengths in two given circles.  The points of intersection of these lines form a triangle.  Prove that its circumcircle passes through the midpoint of the
+segment joining the centres of the circles.
+
+\textbf {Hint.} Anything special about the Simson's line?
+
+\end{enumerate}
+
+\section {Casey's theorem (a.k.a. generalized Ptolemy's theorem)}
+
+\textbf {Statement.} Let $\omega_1$, $\omega_2$, $\omega_3$ and $\omega_4$ be four non-intersecting and mutually exclusive circles, and let $t_{ij}$ be the length of common exterior bitangent (i.e. segment connecting $A_iA_j$ s.t. $A_i$ on $\omega_i$, $A_j$ on $\omega_j$ and $A_iA_j$ tangent to both circles externally. ) Then there exists a circle tangent internally to all four circles (in the order of $\omega_1$, $\omega_2$, $\omega_3$ and $\omega_4$) if and only if:
+$$t_{12}t_{34}+t_{23}t_{14}=t_{13}t_{24}.$$
+
+\textbf {Proof.} Denote $T_i$ as the tangency point of $\omega_i$ and the big circle, $\omega$. Denote the radius of $\omega$ as $R$ and radius of $\omega_k$ as $R_k$ ($k=1,2,3,4$). We prove that 
+$t_{ij}=T_iT_j\cdot \sqrt{ ( 1-\dfrac{r_i}{r} ) (1-\dfrac{r_j}{r} ) }$, thereby reducing the statement into ordinary Ptolemy's theorem (which is far easier to prove!) Note that this proof only works to prove necessity, not sufficiency (which is left as an exercise).
+
+Now, by Monge's theorem the line $T_iT_j$ passes through point $E$, the exsimilicentre of $\omega_i$ and $\omega_j$. Denote $A_i$ and $A_j$ the same way we define them in the theorem statement. Then $EA_i^{2}$ and $EA_j^{2}$ is the power of point of $E$ w.r.t. $\omega_i$ and $\omega_j$, respectively, and $\frac{r_i}{r_j}=\frac{EA_i}{EA_j}$. Denote $U_i$, $U_j$ as the second intersection of line $T_iT_j$ and $\omega_i$, $\omega_j$ respectively. By the definition of exsimilicentres we have ratio $r_1:r_2:r=T_iU_i:T_jU_j:T_iT_j.$ By the definition of point $E$ we can write $ET_i, EU_i, EU_j, ET_j$ (assuming, w.l.o.g., that they lie on the line in that order) as $r_1a, r_1b, r_2a, r_2b$. Now $EA_i^{2}=ET_i\cdot EU_i$ and $EA_j^{2}=EU_j\cdot ET_j$ so $A_iA_j$=$(r_2-r_1)\sqrt{ab}$, while $T_iT_j\cdot \sqrt{ ( 1-\dfrac{r_i}{r} ) (1-\dfrac{r_j}{r} ) }=T_iT_j\cdot \sqrt{ ( 1-\dfrac{T_iU_i}{T_iT_j} ) (1-\dfrac{T_jU_j}{T_iT_j} ) }=\sqrt{ ( T_iT_j-T_iU_i ) (T_iT_j-T_jU_j ) }=\sqrt{ (T_iU_j )\dot (T_jU_i ) }=\sqrt{a(r_2-r_1)\cdot b(r_2-r_1)}=(r_2-r_1)\sqrt{ab}.$ $\blacksquare$
+
+Below is a generalization of Problem 4 in IMO 1978, which assumes that $AB=AC$.
+
+\textbf {Exercise}: A circle is tangent internally to the circumcircle of $\triangle ABC$ and also the sides $AB, AC$ at $P, Q$, respectively. Prove that the midpoint of segment $PQ$ is the incentre of $\triangle ABC$.
+
+This lemma may come handy in solving the following:\\
+\emph{APMO 2006, \#4.} Let $A,B$ be two distinct points on a given circle $O$ and let $P$ be the midpoint of the line segment AB. Let $O_1$ be the circle tangent to the line $AB$ at $P$ and tangent to the circle $O$. Let $l$ be the tangent line, different from the line $AB$, to $O_1$ passing through $A$. Let $C$ be the intersection point, different from $A$, of $l$ and $O$. Let $Q$ be the midpoint of the line segment $BC$ and $O_2$ be the circle tangent to the line $BC$ at $Q$ and tangent to the line segment $AC$. Prove that the circle $O_2$ is tangent to the circle $O$.
+
+Below we present the application to a very hard IMO problem, with only six complete solutions submitted.
+\begin{enumerate}
+\item\emph {IMO 2011, \# 6.} Let $ABC$ be an acute triangle with circumcircle $\Gamma$. Let $\ell$ be a tangent line to $\Gamma$, and let $\ell_a, \ell_b$ and $\ell_c$ be the lines obtained by reflecting $\ell$ in the lines $BC$, $CA$ and $AB$, respectively. Show that the circumcircle of the triangle determined by the lines $\ell_a, \ell_b$ and $\ell_c$ is tangent to the circle $\Gamma$.\\
+\textbf {Solution.} 
+
+\usetikzlibrary{arrows}
+
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+\clip(-2.787913411858677,-11.505541434031079) rectangle (34.61700525997879,6.611449609632774);
+\fill[color=uuuuuu,fill=uuuuuu,fill opacity=0.1] (8.989011148746778,4.700989741570521) -- (-0.5368788928682983,-1.1794237425742722) -- (11.11957705177755,-6.822854600128423) -- cycle;
+\draw(3.9505227834021883,1.0865696007367804) circle (1.6076404873839587cm);
+\draw [dotted] (6.386536470021772,-1.7390394147486157) circle (3.4729976240866263cm);
+\draw (-1.9026785109951698,-2.022543540932911)-- (10.273116764048051,-2.244504508564252);
+\draw (2.800647559664868,4.0892048960298295)-- (1.3261535628491259,-2.081404147180008);
+\draw (2.800647559664868,4.0892048960298295)-- (10.273116764048051,-2.244504508564252);
+\draw (-1.9026785109951698,-2.022543540932911)-- (7.100984717263056,0.4442135079049559);
+\draw (8.989011148746778,4.700989741570521)-- (-1.9026785109951698,-2.022543540932911);
+\draw (-0.5368788928682983,-1.1794237425742722)-- (11.11957705177755,-6.822854600128423);
+\draw (8.989011148746778,4.700989741570521)-- (11.11957705177755,-6.822854600128423);
+\draw [color=uuuuuu] (8.989011148746778,4.700989741570521)-- (-0.5368788928682983,-1.1794237425742722);
+\draw [color=uuuuuu] (-0.5368788928682983,-1.1794237425742722)-- (11.11957705177755,-6.822854600128423);
+\draw [color=uuuuuu] (11.11957705177755,-6.822854600128423)-- (8.989011148746778,4.700989741570521);
+\draw (2.800647559664868,4.0892048960298295)-- (11.11957705177755,-6.822854600128423);
+\draw (-0.5368788928682983,-1.1794237425742722)-- (6.541355622787623,-0.8175356865481822);
+\draw (6.541355622787623,-0.8175356865481822)-- (8.989011148746778,4.700989741570521);
+\begin{scriptsize}
+\draw [fill=qqqqff] (2.800647559664868,4.0892048960298295) circle (2.5pt);
+\draw[color=qqqqff] (3.099295526926176,4.692414651686334) node {$A$};
+\draw [fill=qqqqff] (1.5673936018816261,-1.071838852473516) circle (2.5pt);
+\draw[color=qqqqff] (1.79825487747096,-0.4792219298981409) node {$B$};
+\draw [fill=qqqqff] (7.100984717263056,0.4442135079049559) circle (2.5pt);
+\draw[color=qqqqff] (7.42525568636477,0.6917146546115516) node {$C$};
+\draw [fill=xdxdff] (3.8919189463350277,-2.1281772535249255) circle (2.5pt);
+\draw[color=xdxdff] (4.107602030253969,-1.5525804656986921) node {$D$};
+\draw [fill=uuuuuu] (-1.9026785109951698,-2.022543540932911) circle (1.5pt);
+\draw[color=uuuuuu] (-1.8771849572400259,-1.455002416989551) node {$A'$};
+\draw [fill=uuuuuu] (1.3261535628491259,-2.081404147180008) circle (1.5pt);
+\draw[color=uuuuuu] (1.635624796289058,-1.6176324981714527) node {$C'$};
+\draw [fill=uuuuuu] (10.273116764048051,-2.244504508564252) circle (1.5pt);
+\draw[color=uuuuuu] (10.61280527753005,-1.7802625793533546) node {$B'$};
+\draw [fill=uuuuuu] (-0.5368788928682983,-1.1794237425742722) circle (1.5pt);
+\draw[color=uuuuuu] (-0.8038264214394724,-0.5767999786072818) node {$B_1$};
+\draw [fill=uuuuuu] (8.989011148746778,4.700989741570521) circle (1.5pt);
+\draw[color=uuuuuu] (9.279238611838453,5.245356927704799) node {$C_1$};
+\draw [fill=uuuuuu] (11.11957705177755,-6.822854600128423) circle (1.5pt);
+\draw[color=uuuuuu] (11.425955683439561,-6.2688528199738425) node {$A_1$};
+\draw [fill=uuuuuu] (6.541355622787623,-0.8175356865481822) circle (1.5pt);
+\draw[color=uuuuuu] (6.6121052804552605,-1.1947942870985084) node {$I$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Because we are using Casey's theorem, please expect some ratio bashing (including the notorious trigonometry!) Denote $A_1$, $B_1$, $C_1$ as $\ell_b\cap \ell_c$, $\ell_a\cap \ell_c$, $\ell_a\cap \ell_b,$ respectively. We claim that $AA_1$, $BB_1$, $CC_1$ concur on $\Gamma$.
+
+Now denote the intersection of $BC, CA, AB$ with $\ell$ as $A',B'$ and $C'$, respectively. let us consider triangle $B_1A'C'$. Since $A'B$ bisects $\angle B_1A'C'$ and $C'B$ bisects $\angle B_1C'A'$, we know that $B$ is either the incenter or excenter of $B_1A'C'$ and it follows that $B_1B$ bisects angle $A'B_1C'$, which then follows that (well known: verify it yourself!) $BB_1$ passes through the circumentre of $BA'C'$. Using th notation of directed angles it follows that $\angle (BB_1,AB)=\angle (BB_1,BC')=90^{\circ}-\angle (A'C',A'B)=90^{\circ}-\angle (\ell, BC)$ and $\angle (BB_1,BC)=\angle (BB_1,BA')=90^{\circ}-\angle (A'C',C'B)=90^{\circ}-\angle (\ell,AB)$. In a similar way, $\angle (CC_1,AC)=90^{\circ}-\angle (\ell, BC)$ and $\angle (CC_1,BC)=90^{\circ}-\angle (\ell, AC).$ Now $\angle (BB_1,CC_1)=\angle (BB_1, BC)-\angle (CC_1, BC)$=$(90^{\circ}-\angle (\ell,AB))-(90^{\circ}-\angle (\ell,AC))=\angle (AB, AC)$, yielding that $BB_1$ and $CC_1$ indeed intersect on $\Gamma$. The concurrence of $AA_1, BB_1$ and $CC_1$ (namely $I$) follows from the fact that they intersect at either the incenter or excenter of triangle $A_1B_1C_1$, hence we are done.
+
+Now we need the fact that $I$ is the incenter (not excentre opposite to any of the sides), given that $ABC$ is an acute triangle. Now let's investigate the relationship between $\angle A$, $\angle B$, $\angle C$ (of $\triangle ABC$) and $\angle A_1$, $\angle B_1$, $\angle C_1$ (of $\triangle A_1B_1C_1$). Take $B$ again. If $\angle A'BC'<90^{\circ}$ then $\angle B=\angle A'BC'$, and it can be verified that $B$ is now the excentre of $\triangle B_1A'C'$ and $\angle B_1A'C'=180^{\circ}-2\angle A'BC=180^{\circ}-2\angle B$. On the other hand, if $\angle A'BC$ is obtuse then $\angle B=180^{\circ}-\angle A'BC$ and $B$ is the incenter of $\triangle B_1A'C'$ so $\angle B_1A'C'=2\angle A'BC-360^{\circ}=2(180^{\circ}-\angle B)-180^{\circ}=180^{\circ}-2\angle B.$ So $\angle B_1$ is either $2\angle B$ or $180^{\circ}-2\angle B$, depending whether $BB_1$ is the external or internal angle bisector of angle $B_1$, respectively. Same goes for line angles $A_1$ and $C_1$. If $I$ is the excentre, then exactly two of the lines $AA_1$, $BB_1$, $CC_1$ are the external angle bisectors of the respective angles. So let say $AA_1$ and $BB_1$ are the external angle bisectors of angles $A_1$ and $B_1$ then angles $A_1$, $B_1$, $C_1$ are $2\angle A$, $2\angle B$ and $180^{\circ}-2\angle C$ respectively. As the three angles sum up to $180^{\circ}$ and $\angle A+\angle B+\angle C=180^{\circ},$ comparing the two equations yields $\angle C=90^{\circ}$ (contradiction).
+
+Now let's proceed to the solving of the main problem. Denote $T$ as the tangent point of $\ell$ and $\Gamma$, and $a,b,c$ as $\angle (TA,\ell),\angle (TB,\ell),\angle (TC,\ell)$. Speaking in modulo $180^{\circ}$, $\angle A$ is congruent to $b-c$, so $\sin\angle A$=$|\sin (b-c)|$. Similarly $\sin\angle B$=$|\sin (c-a)|$ and $\sin\angle C$=$|\sin (a-b)|.$ (we can change the $\pm$ sign to modulus, though). By applying Casey's theorem to degenerate circles $A_1, B_1, C_1$ and circle $\Gamma$ we need one of $A_1B_1\cdot t(C_1)$, $C_1A_1\cdot t(B_1)$, $B_1C_1\cdot t(A_1)$ to be the sum of the other two, which is evident, if, by changing some of the terms into its negative, the resulting three terms add up to 0. ($t(K)$ is the length of tangent from point $K$ to $\Gamma$.) Notice that it is the ratio $A_1B_1\cdot t(C_1)$ : $C_1A_1\cdot t(B_1)$ : $B_1C_1\cdot t(A_1)$ that matters, so we can divide each of them by a constant whenever necessary.
+
+By power of point theorem we have $t(A_1)=\sqrt {A_1I\cdot A_1A}.$ Define $r$ as the inradius of triangle $A_1B_1C_1$ and $r_A$ the distance from $A$ to lines $A_1B'$, $A_1C'$ and $B'C'$ (or $\ell$) (the distance to the three lines are the same because $A$ is the incentre or excentre of $A_1B'C'$.) Now $A_1A=\dfrac{r_A}{\sin AA_1B'}=\dfrac{r_A}{\sin (90^{\circ}-\angle A)}=\dfrac{r_A}{\cos \angle A}$ as $\angle A_1=180^{\circ}-2\angle A.$ Similarly $\angle A_1I=\dfrac{r}{\cos \angle A}$ so $t(A_1)=\sqrt {A_1I\cdot A_1A}=\dfrac{\sqrt{r\cdot r_A}}{\cos \angle A}$. Now $B_1C_1=D\sin\angle A_1=D\sin\angle (180^{\circ}-2\angle A)=D\sin 2\angle A,$ where $D$ is the diameter of circumcircle $A_1B_1C_1$ so $B_1C_1\cdot t(A_1)=D\sin 2\angle A\cdot \dfrac{\sqrt{r\cdot r_A}}{\cos \angle A}=2D\sin \angle A\cdot\sqrt{r\cdot r_A}.$ The original ratio now becomes $\sin \angle A\cdot\sqrt{r_A}$ : $\sin \angle B\cdot\sqrt{r_B}$ : $\sin \angle C\cdot\sqrt{r_C}$ by eliminating constants $D$ and $r$. Now if $d$ is the diameter of $\Gamma$ then it is not hard to notice that $r_A$=distance from $A$ to $\ell$=$TA\sin\angle (TA,\ell)$=$(d\sin a)\cdot\sin a=d\sin^{2} a.$ Meanwhile $\sin\angle A=|\sin (b-c)|.$ So our original ratio becomes $\sin a\cdot|\sin (b-c)|$ : $\sin a\cdot|\sin (c-a)|$ : $\sin c\cdot|\sin (a-b)|$. But $\sin a\cdot\sin (b-c)+\sin a\cdot\sin (c-a)+\sin c\cdot\sin (a-b)=0,$ which confirms the identity we want to prove. $\blacksquare$
+
+Now another elegant key to the following APMO problem, also among the hardest in that paper.
+
+\item\emph {APMO 2014, \#5.} Circles $\omega$ and $\Omega$ meet at points $A$ and $B$. Let $M$ be the midpoint of the arc $AB$ of circle $\omega$ ($M$ lies inside $\Omega$). A chord $MP$ of circle $\omega$ intersects $\Omega$ at $Q$ ($Q$ lies inside $\omega$). Let $\ell_P$ be the tangent line to $\omega$ at $P$, and let $\ell_Q$ be the tangent line to $\Omega$ at $Q$. Prove that the circumcircle of the triangle formed by the lines $\ell_P$, $\ell_Q$ and $AB$ is tangent to $\Omega$.\\
+\textbf {Solution.} Denote $X, Y, Z$ as $\ell_P\cap\ell_Q$, $\ell_Q\cap AB$ and $AB\cap\ell_P$, respectively. A simple conjecture yields that if $T$ is the tangent point we need, then $X,Z,Y,T$ are on a circle in that order. Again, from Casey's theorem we need $XY\cdot t(Z)=XZ\cdot t(Y)+ZY\cdot t(X)$, where $t(K)$ is the length of tangent from point $K$ to $\Omega$. Now $t(X)=XQ=XY+YQ$ and $t(Y)=YQ$. Since $X$ lies on $AB$, the radical axis of $\omega$ and $\Omega$, the tangent from $X$ to both circles are the same, and $t(X)=XP$. Now the original desired equation becomes $XY\cdot ZP=XZ\cdot YQ+YZ\cdot (XY+YQ)$, or $XY\cdot (ZP-YZ)=YQ\cdot (XZ+YZ)$.
+
+
+\usetikzlibrary{arrows}
+
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.7288256774937514,-3.154999039015949) rectangle (16.72149144724197,6.265719777051699);
+\draw(2.18,0.5) circle (2.9597972903562164cm);
+\draw(4.22,0.64) circle (2.0608736011701447cm);
+\draw [dotted] (5.095026283180372,3.66491777350898) circle (1.0880624942034978cm);
+\draw (3.9447622026317712,5.836322190222767)-- (4.441982206065244,-1.4088835740935624);
+\draw (1.4582432738001505,3.37044721745328)-- (5.132851895288268,0.7026466986962536);
+\draw (1.4582432738001505,3.37044721745328)-- (5.827874638112306,4.469164800215261);
+\draw (2.9662381634070374,2.2756287039248986)-- (5.827874638112306,4.469164800215261);
+\draw (3.9447622026317712,5.836322190222767)-- (5.827874638112306,4.469164800215261);
+\begin{scriptsize}
+\draw [fill=qqqqff] (4.16,2.7) circle (2.5pt);
+\draw[color=qqqqff] (4.002675379588699,2.595529502210264) node {$A$};
+\draw [fill=uuuuuu] (4.441982206065244,-1.4088835740935624) circle (1.5pt);
+\draw[color=uuuuuu] (4.560814914472419,-1.1761406880645748) node {$B$};
+\draw [fill=uuuuuu] (5.132851895288268,0.7026466986962536) circle (1.5pt);
+\draw[color=uuuuuu] (5.254261003267345,0.9380242167980031) node {$M$};
+\draw [fill=xdxdff] (1.4582432738001505,3.37044721745328) circle (2.5pt);
+\draw[color=xdxdff] (1.5840707284259088,3.677981933499904) node {$P$};
+\draw [fill=uuuuuu] (2.9662381634070374,2.2756287039248986) circle (1.5pt);
+\draw[color=uuuuuu] (2.95404958677686,2.5447895444935624) node {$Q$};
+\draw [fill=uuuuuu] (5.827874638112306,4.469164800215261) circle (1.5pt);
+\draw[color=uuuuuu] (5.947707092062271,4.709694407072842) node {$X$};
+\draw [fill=uuuuuu] (4.253247711479793,1.3412476327230154) circle (1.5pt);
+\draw[color=uuuuuu] (4.374768402844512,1.580730347876227) node {$R$};
+\draw [fill=uuuuuu] (3.9447622026317712,5.836322190222767) circle (1.5pt);
+\draw[color=uuuuuu] (4.070328656544301,6.079673265423793) node {$W$};
+\draw [fill=uuuuuu] (4.12800843129144,3.1661628583247268) circle (1.5pt);
+\draw[color=uuuuuu] (3.901195464155295,3.3566288679607923) node {$Y$};
+\draw [fill=uuuuuu] (4.068938856107475,4.026890953862522) circle (1.5pt);
+\draw[color=uuuuuu] (3.901195464155295,4.253034787622525) node {$Z$};
+\end{scriptsize}
+\end{tikzpicture}
+
+A crucial identity in this problem is that, if $R=MP\cap AB$ then $ZP=ZR$. (actually this is well-known and the proof is left as an exercise: think of the tangent to $\omega$ at $M$ which is parallel to $AB$!) Now let $W$ on $AB$ s.t. $WX\parallel PR$, we have $\frac{WZ}{XZ}=\frac{ZR}{ZP}=1$, so $XZ+YZ=YZ+WZ=WY$. Furthermore $ZP-YZ=ZR-YZ=YR$. So now we need $XY\cdot YR=YQ\cdot WY$, or $\frac{XY}{WY}=\frac{YQ}{YR}$. But this follows from the fact $WX\parallel PM$ (so we are done!) $\blacksquare$
+
+\end{enumerate}
+
+\section {Sawayama Thebault's theorem.}
+\textbf {Statement.} Let $I$ be the incentre of $\triangle ABC$, $D$ a point on line $BC$. If a circle is tangent to the circumcircle of triagle $ABC$, to segment $DC$ at $E$ and segment $DA$ at $F$. Then $E,I,F$ are collinear.
+
+\textbf {Proof (found in Awesome Math notes).}
+
+\usetikzlibrary{arrows}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.1126258989381808,0.0028276229596914475) rectangle (11.2310008674378,5.981436413282651);
+\draw(1.16,3.6) circle (1.1271202242884295cm);
+\draw(2.3996396396396396,2.955387387387387) circle (2.5243431329558885cm);
+\draw (1.6559694040554032,5.3677022162618515)-- (2.3996396396396396,0.43104425443149846);
+\draw (0.16,4.12)-- (2.3996396396396396,0.43104425443149846);
+\draw (-0.07816072713256098,2.4728797757115717)-- (4.87744000641184,2.4728797757115717);
+\draw (1.6559694040554032,5.3677022162618515)-- (2.8373402780241013,2.4728797757115712);
+\draw (1.16,2.4728797757115704)-- (2.2035654789047325,4.025876849850211);
+\draw (1.6559694040554032,5.3677022162618515)-- (0.16,4.12);
+\draw (0.16,4.12)-- (2.2035654789047325,4.025876849850211);
+\draw [dotted] (1.196738024113913,4.397641788687293) circle (1.0732710251698308cm);
+\begin{scriptsize}
+\draw [fill=qqqqff] (0.16,4.12) circle (2.5pt);
+\draw[color=qqqqff] (0.04660165825191116,4.27479584297502) node {$K$};
+\draw [fill=xdxdff] (1.16,2.4728797757115704) circle (2.5pt);
+\draw[color=xdxdff] (1.1521612729794988,2.374950679802374) node {$E$};
+\draw [fill=uuuuuu] (2.3996396396396396,0.43104425443149846) circle (1.5pt);
+\draw[color=uuuuuu] (2.4723926575571036,0.582441401554736) node {$M$};
+\draw [fill=uuuuuu] (-0.07816072713256098,2.4728797757115717) circle (1.5pt);
+\draw[color=uuuuuu] (-0.007066284210593098,2.621823215129893) node {$B$};
+\draw [fill=uuuuuu] (4.87744000641184,2.4728797757115717) circle (1.5pt);
+\draw[color=uuuuuu] (4.9518515993248,2.621823215129893) node {$C$};
+\draw [fill=xdxdff] (1.6559694040554032,5.3677022162618515) circle (2.5pt);
+\draw[color=xdxdff] (1.7317750515745447,5.562826462075119) node {$A$};
+\draw [fill=uuuuuu] (1.9213684083678673,3.605921194231733) circle (1.5pt);
+\draw[color=uuuuuu] (2.0323155293645687,3.5663790024699655) node {$I$};
+\draw [fill=uuuuuu] (2.2035654789047325,4.025876849850211) circle (1.5pt);
+\draw[color=uuuuuu] (2.2791880646920886,4.178193546542513) node {$F$};
+\draw [fill=uuuuuu] (2.8373402780241013,2.4728797757115712) circle (1.5pt);
+\draw[color=uuuuuu] (2.912469785749639,2.621823215129893) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+
+ Denote by $\Omega$ the circumcircle of $ABC$ and by $\Gamma$ the circle tangent to $\Gamma$, $DC$ and $DA$. Let the two circles touch at $K$. Let $M$ be the midpoint of arc $BC$ on $\Omega$ not containing $K$. Then The homothety centred $K$ that maps $\Gamma$ to $\Omega$ maps point $E$ to $M$, so $K,E,M$ are collinear. Notice that $A,I,M$ are collinear too, and $MI=MB=MC$.
+
+Now let $EI$ meet $\Gamma$ at $F'$. To prove $F=F'$ it suffices to have $AF'$ tangent to $\Gamma$. Note that $\angle KFE'$ is subtended by the arc $KE$ in $\Gamma$ and $\angle KAM$ is subtended by $KM$ in $\Omega$. Since $KE$ and $KM$ are however homothetic with center $K$, the two angles aforementioned are equal, implying that $A,K,I'F'$ are concyclic.
+
+We have $\angle BCM=\angle CBM=\angle CKM$. So triangles $MCE$ and $MKC$ are similar. Hence $MC^{2}=ME\cdot MK$. Since $MC=MI$, we have $MI^{2}=ME\cdot MK$, implying that $MIE$ an $MKI$ are in fact similar. Therefore, $AF'$ is tangent to $\Omega$. $\blacksquare$
+
+\textbf {Corollary 1.} (Thebault) Denote $A,B,C,D,I$ as above, and $\omega_1$, $\omega_2$ be two circles, each tangent to line $AD$, to line $BC$ and to the circumcircle of $\triangle ABC$. (One tangent to segment $BD$ and the other one tangent to segment $CD$. Then $I$ lies on the line connecting centres of $\omega_1$ and $\omega_2$.
+
+Finally, we present the 6th (also the last) problem from some national Olympiad in 2010.
+
+\textbf {Corollary 2.} Using the same notation with corollary 1, prove that $B, C$ and the centres of $\omega_1$ and $\omega_2$ lie on a circle if and only if $D$ is the tangency point of $A-$excircle with $BC$. *The actual contest only contains the "only if" part, but once this is established, the other direction can be settled quickly.
+
+To solve the "only if" part, there ae two ways: either using Thebaults theorem, or using Casey's theorem. But both require us to prove the following lemma: 
+
+\emph {If $O_1$ and $O_2$  are the centres of  $\omega_1$ and $\omega_2$, then $B, C, O_1, O_2$ are concyclic if and only if $\omega_1$ and $\omega_2$ are congruent.}
+
+Using the asumption above, we are left with Ehrmann-Pohoata's lemma. We offer a proof using Casey's theorem, bearing in mind that the two circles are congruent.\\
+\textbf{Proof.} Let $\omega_1$ tangent to $AD$ at $X$, and segment $BD$ at $Y$. Let $\omega_2$ tangent to $AD$ at $Z$ and segment $CD$ at $W$. Because of the congruence of the circles we can easily know that $BY=CW$, and $CY=BW$.
+
+
+\usetikzlibrary{arrows}
+
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(1.2671732442735342,-0.47509473869820273) rectangle (13.387716777196392,5.39546417246529);
+\draw(4.892591966853948,2.489480013307317) circle (2.651521942188816cm);
+\draw(3.510043753114188,2.036453844043952) circle (1.196643159144524cm);
+\draw(6.286401276535008,2.0723854417784473) circle (1.196643159144524cm);
+\draw (2.8239086988396096,0.8308305185236035)-- (7.003507630287938,0.8849228557782405);
+\draw (3.3349194506192097,4.635225790904396)-- (5.617501621114988,0.8669851766576372);
+\draw (3.3349194506192097,4.635225790904396)-- (2.8239086988396096,0.8308305185236035);
+\draw (3.3349194506192097,4.635225790904396)-- (7.003507630287938,0.8849228557782405);
+\draw (3.510043753114188,2.036453844043952)-- (6.286401276535008,2.0723854417784473);
+\begin{scriptsize}
+\draw [fill=qqqqff] (2.8239086988396096,0.8308305185236035) circle (2.5pt);
+\draw[color=qqqqff] (2.9008117204500934,1.021528897540964) node {$B$};
+\draw [fill=xdxdff] (7.003507630287938,0.8849228557782405) circle (2.5pt);
+\draw[color=xdxdff] (7.200969773869682,1.0426081036851775) node {$C$};
+\draw [fill=uuuuuu] (3.5255294028533646,0.8399108882836744) circle (1.5pt);
+\draw[color=uuuuuu] (3.596425523209144,0.9899100883246437) node {$Y$};
+\draw [fill=uuuuuu] (6.301886926274185,0.8758424860181697) circle (1.5pt);
+\draw[color=uuuuuu] (6.378880734245349,1.021528897540964) node {$W$};
+\draw [fill=uuuuuu] (3.510043753114188,2.036453844043952) circle (1.5pt);
+\draw[color=uuuuuu] (3.606965126281251,2.2125040446890334) node {$O_1$};
+\draw [fill=uuuuuu] (6.286401276535008,2.0723854417784473) circle (1.5pt);
+\draw[color=uuuuuu] (6.378880734245349,2.2546624569774605) node {$O_2$};
+\draw [fill=uuuuuu] (3.3349194506192097,4.635225790904396) circle (1.5pt);
+\draw[color=uuuuuu] (3.406712667911221,4.784167194283095) node {$A$};
+\draw [fill=uuuuuu] (5.617501621114988,0.8669851766576372) circle (1.5pt);
+\draw[color=uuuuuu] (5.693806534558404,1.0109892944688572) node {$D$};
+\draw [fill=uuuuuu] (4.533554834836863,2.6564376469922766) circle (1.5pt);
+\draw[color=uuuuuu] (4.6082274181314,2.802721816727015) node {$X$};
+\draw [fill=uuuuuu] (4.194429058273386,2.0453111534044854) circle (1.5pt);
+\draw[color=uuuuuu] (4.2709601198239815,2.19142483854482) node {$I$};
+\draw [fill=uuuuuu] (5.262890194812332,1.4524016388301253) circle (1.5pt);
+\draw[color=uuuuuu] (5.335460030106772,1.6012070665068383) node {$Z$};
+\end{scriptsize}
+\end{tikzpicture}
+
+By Casey's theorem, $AB\cdot CY=BC\cdot AX+AC\cdot BY$ and $AC\cdot BW=BC\cdot AZ+AB\cdot CW$. Subtracting the first equation by the second equation yields $CY\cdot (AB-AC)=BC\cdot (AX-AZ)+BY\cdot (AC-AB),$ or $BC\cdot (AB-AC)=(CY+BY)\cdot (AB-AC)=BC\cdot (AX-AZ)=BC\cdot (DZ-DX)=BC\cdot (DW-DY)=BC\cdot (DC-DB)$, since $DC=DW+CW$, $DB=DY+BY$ and $CW=BY$. The equation now becomes $AB+BD=AC+CD$, and from here we conclude that $D$ is the tangency point of the $A$-excircle with $BC$ (well-known fact, again!) $\blacksquare$
+
+
+\section {References.}
+\begin{enumerate}
+\item Cosmin Pohoata, 2012, AMY 2011-2012, \emph {Homothety and Inversion}. AwesomeMath LLC.
+\item https://en.wikipedia.org/wiki/Casey%27s_theorem
+\end{enumerate}
+
+\subsection {Problem credit.}
+\begin{enumerate}
+\item IMO 2003, 2007, 2011.
+\item APMO 2006, 2014.
+\item IMTOT Fall 2008.
+
+\end{enumerate}
+\vspace{5mm} \noindent \copyright \,\, 2016 IMO Malaysia Committee
+
+\end{document}

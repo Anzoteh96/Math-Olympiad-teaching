@@ -1,0 +1,437 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amssymb, fullpage, mathrsfs, pgf, tikz}
+
+\begin{document}
+
+\title{IMO 2016 Training Camp-Junior}
+\author{Trigonometry-ratio hacks}
+\date{15 January 2016}
+\maketitle
+
+\section {Basics}
+Just in case you are curious of what is the beauty of this technique, the answer is: you can add some algebraic flavour into pure geometric problems! Synthetic geometry often requires some ingenuity but a slightly less amount of creativity is needed if you know trigs. That having said, some proficiency of geometry is needed, like the ability to draw extra lines or even circles correctly (Mr. Suhaimi calls it \emph {geometric eyes}).
+
+Here are some facts that will be useful:
+\begin{enumerate}
+\item$\sin (A+B)=\sin A\cos B+\cos A\sin B$
+\item$\sin (A-B)=\sin A\cos B-\cos A\sin B$
+\item$\cos (A+B)=\cos A\cos B-\sin A\sin B$
+\item $\cos (A-B)=\cos A\cos B+\sin A\sin B$
+\item $\sin A+\sin B=2\sin \dfrac{A+B}{2} \cos \dfrac{A-B}{2}$
+\item $\sin A-\sin B=2\sin \dfrac{A-B}{2} \cos\dfrac{A+B}{2}$
+\item $\cos A+\cos B=2\cos \dfrac{A+B}{2} \cos \dfrac{A-B}{2}$
+\item $\cos A-\cos B=-2\sin \dfrac{A+B}{2} \sin \dfrac{A-B}{2}$
+
+ No.5 and No.6 entail that $\sin^{2} A-\sin^{2} B=\sin (A+B)\sin (A-B)$. No. 7 and No. 8 imply that $\cos ^{2}A-\cos ^{2}B=-\sin (A+B)\sin (A-B)$. Also note the relation $\sin (180^{\circ}-A)=\sin A$, $\cos (180^{\circ}-A)=-\cos A$, $\sin (90^{\circ}\pm A)=\cos A$ and $\cos (90^{\circ}\pm A)=\mp\sin A$. We will use these identities below profusely without proof.
+
+\end{enumerate}
+
+\section {Identities}
+Note: the last identity is not commonly used in contests so make sure you understand the proof!
+\begin {enumerate}
+\item (Sine rule) For any triangle $ABC$, $\frac{AB}{AC}=\frac{\sin\angle ACB}{\sin\angle ABC}.$
+\\This is available even in Form 4 textbook, and I shall leave the proof as an exercise.
+
+\item (Cosine rule) For a triangle $ABC$, we have $BC^{2}=AB^{2}+CA^{2}-2\cdot AB\cdot CA\cdot\cos\angle BAC$.
+\\\textbf {Corollary.} $\cos\angle BAC=\frac{AB^{2}+CA^{2}-BC^{2}}{2\cdot AB\cdot CA}.$
+
+\item Let $D$ be a point on $BC$ of $\triangle ABC$. Then $\frac {BD}{DC}=\frac{AB}{AC}\cdot\frac{\sin\angle BAD}{\sin\angle CAD}$.
+\\Proof: now let $|\triangle ABC|$ be the area of $\triangle ABC$. Also let the perpendicular from points $D$ to lines $AB$ and $AC$ be $E$ and $F$ respectively.Then $\frac {BD}{DC}=\frac{|\triangle ABD|}{|\triangle ADC|}=\dfrac{\frac{1}{2}\cdot AB\cdot DE}{\frac{1}{2}\cdot AC\cdot DF}=\frac{AB\cdot (AD\cdot\sin\angle BAD)}{AC\cdot (AD\cdot\sin\angle CAD)}=\frac{AB}{AC}\cdot\frac{\sin\angle BAD}{\sin\angle CAD}.$
+\item Let $ABDC$ be a cyclic quadrilateral. Then $\frac {BD}{DC}=\frac{\sin\angle BAD}{\sin\angle CAD}$.
+\\In fact, chord length=diameter of the circle to which the chord belongs $\times$ sine of the angle subtended by the chord on the arc of the circle (or angle between the chord and the tangent to the circle at either of the chord's endpoint!)
+
+As long as ratio is concerned, the diameter of the circle is not so relevant in our solution compared to the sines.
+
+\item Let $D$ be in the angle domain of $\angle BAC$ of a triangle $BAC$ and let $AD$ intersect $BC$ at $E$. Then $\frac{BE}{EC}=\frac{AB}{AC}\cdot\frac{BD}{CD}\cdot\frac{\sin\angle ABD}{\sin\angle ACD}$. (See how it is equivalent to the trigo version of Ceva's theorem).
+
+\textbf {Corollary 1.} Take $D$ as above. Then $\frac{\sin\angle BAD}{\sin\angle CAD}=\frac{BD}{CD}\cdot\frac{\sin\angle ABD}{\sin\angle ACD}.$
+
+\textbf {Corollary 2.}  Let $D$ and $E$ be in the angle domain of $\angle BAC$ of a triangle $BAC$. Then $\frac{\sin\angle BAD}{\sin\angle CAD}=\frac{\sin\angle BAE}{\sin\angle CAE}\iff\angle BAD=\angle BAE$ and $\angle CAD=\angle CAE$.
+
+\textbf {Corollary 3.} Denote $D$ and $E$ the same way as we did in corollary 2. Then $A, D, E$ are collinear iff $\frac{BD\cdot\sin\angle ABD}{CD\cdot\sin\angle ACD}=\frac{BE\cdot\sin\angle ABE}{CE\cdot\sin\angle ACE}$. 
+
+\end {enumerate}
+
+\section{Examples and solutions}
+\begin{enumerate}
+
+\item \emph {APMO 2013, Problem 1}: Let $ABC$ be an acute triangle with altitudes $AD, BE$ and $CF$, and let $O$ be the center of its circumcircle.  Show that the segments $OA, OF, OB, OD, OC, OE$ dissect the triangle $ABC$ into three pairs of triangles that have equal areas.
+
+\textbf {Solution 1}: The first obstacale is to "pair" the six triangles, so calculate each of them. Let's pick $\triangle BOD$ for now.
+
+As we see $|\triangle BOC|=\frac{1}{2}\cdot BO\cdot OC\cdot\sin\angle BOC=\frac{1}{2}\cdot R^{2}\cdot\sin(2\angle A)=R^{2}\cdot\sin\angle A\cos\angle A.$ Now $|\triangle BOD|=|\triangle BOC|\cdot\frac{BD}{BC}=|\triangle BOC|\cdot\frac{BD}{BD+DC}.$ But $\frac{BD}{DC}=\frac{\sin\angle C\cos\angle B}{\sin\angle B\cos\angle C}$ so $\frac{BD}{BC}=\frac{\sin\angle C\cos\angle B}{\sin\angle C\cos\angle B+\sin\angle B\cos\angle C}=\frac{\sin\angle C\cos\angle B}{\sin\angle A}$ (recall that $\angle B+\angle C$ and $\angle A$ are sumpplementary so the sines of these angles must be the same). Combining above we must have $|\triangle BOD|=R^{2}\cdot\cos\angle B\cos\angle A\sin\angle C$. Now you can verify that this is the same for $|\triangle AOE|$. Similarly, $|\triangle COD|=|\triangle AOF|=R^{2}\cdot\cos \angle A\cos\angle C\sin\angle B$ and $|\triangle BOF|=|\triangle COE|=R^{2}\cdot\cos\angle B\cos\angle C\sin\angle A$. $\blacksquare$
+
+
+\textbf {Solution 2}: Perhaps we have made our pairing conjecture and want to play with ratios (sides and bases). Let's name our orthocentre $H$ and midpoints of $BC, CA, AB$ as $M_A, M_B, M_C$ respectively. Observe that $M_A, M_B, M_C$ are also the perpendicular of $O$ to sides $BC, CA, AB$. (Why?)
+
+Now we shall take $\triangle BOD$ and $\triangle AEO$ again, and $\frac{|\triangle BOD|}{|\triangle AEO|}=\dfrac{\frac{1}{2}\cdot BD\cdot OM_A}{\frac{1}{2}\cdot CE\cdot OM_B}$. Now $\triangle EHA\sim\triangle DHB$, so $\frac{BD}{EA}=\frac{HB}{HA}=\frac{\sin\angle DAB}{\sin\angle EBA}=\frac{\cos\angle B}{\cos\angle A}$ while $OM_A=OB\cos BOM_A=R\cos \frac{\angle BOC}{2}=R\cos\angle A$. In a similar manner $OM_B=R\cos\angle B$. So $\frac{|\triangle BOD|}{|\triangle AEO|}=\frac{BD\cdot OM_A}{CE\cdot OM_B}=\frac{\cos\angle B}{\cos\angle A}\cdot\frac{R\cos\angle A}{R\cos\angle B}=1.$ $\blacksquare$
+
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+\definecolor{wqwqwq}{rgb}{0.3764705882352941,0.3764705882352941,0.3764705882352941}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.06990826970454,-2.67969248510474) rectangle (15.380408855031188,6.741026330962898);
+\fill[color=wqwqwq,fill=wqwqwq,fill opacity=0.75] (-3.06,-2.02) -- (2.400693981048979,0.7543814226611502) -- (-1.2967129804833217,-2.03296534573174) -- cycle;
+\fill[color=wqwqwq,fill=wqwqwq,fill opacity=0.75] (-1.24,5.68) -- (2.400693981048979,0.7543814226611502) -- (1.5182265727989228,3.3114566516141704) -- cycle;
+\fill[color=cqcqcq,fill=cqcqcq,fill opacity=0.5] (-2.5022291797119602,0.3397996242955545) -- (-3.06,-2.02) -- (2.400693981048979,0.7543814226611502) -- cycle;
+\fill[color=cqcqcq,fill=cqcqcq,fill opacity=0.5] (1.5182265727989228,3.3114566516141704) -- (2.400693981048979,0.7543814226611502) -- (7.82,-2.1) -- cycle;
+\draw (-1.24,5.68)-- (-3.06,-2.02);
+\draw (-3.06,-2.02)-- (7.82,-2.1);
+\draw (7.82,-2.1)-- (-1.24,5.68);
+\draw (2.400693981048979,0.7543814226611502)-- (-3.06,-2.02);
+\draw (2.400693981048979,0.7543814226611502)-- (-1.2967129804833217,-2.03296534573174);
+\draw (2.400693981048979,0.7543814226611502)-- (7.82,-2.1);
+\draw (2.400693981048979,0.7543814226611502)-- (1.5182265727989228,3.3114566516141704);
+\draw (2.400693981048979,0.7543814226611502)-- (-1.24,5.68);
+\draw (2.400693981048979,0.7543814226611502)-- (-2.5022291797119602,0.3397996242955545);
+\draw [dotted] (2.400693981048979,0.7543814226611502)-- (2.38,-2.06);
+\draw [dotted] (2.400693981048979,0.7543814226611502)-- (3.29,1.79);
+\draw [dotted] (2.400693981048979,0.7543814226611502)-- (-2.15,1.83);
+\draw [color=wqwqwq] (-3.06,-2.02)-- (2.400693981048979,0.7543814226611502);
+\draw [color=wqwqwq] (2.400693981048979,0.7543814226611502)-- (-1.2967129804833217,-2.03296534573174);
+\draw [color=wqwqwq] (-1.2967129804833217,-2.03296534573174)-- (-3.06,-2.02);
+\draw [color=wqwqwq] (-1.24,5.68)-- (2.400693981048979,0.7543814226611502);
+\draw [color=wqwqwq] (2.400693981048979,0.7543814226611502)-- (1.5182265727989228,3.3114566516141704);
+\draw [color=wqwqwq] (1.5182265727989228,3.3114566516141704)-- (-1.24,5.68);
+\draw [color=cqcqcq] (-2.5022291797119602,0.3397996242955545)-- (-3.06,-2.02);
+\draw [color=cqcqcq] (-3.06,-2.02)-- (2.400693981048979,0.7543814226611502);
+\draw [color=cqcqcq] (2.400693981048979,0.7543814226611502)-- (-2.5022291797119602,0.3397996242955545);
+\draw [color=cqcqcq] (1.5182265727989228,3.3114566516141704)-- (2.400693981048979,0.7543814226611502);
+\draw [color=cqcqcq] (2.400693981048979,0.7543814226611502)-- (7.82,-2.1);
+\draw [color=cqcqcq] (7.82,-2.1)-- (1.5182265727989228,3.3114566516141704);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-1.24,5.68) circle (2.5pt);
+\draw[color=qqqqff] (-1.1269907221358304,5.97992696521237) node {$A$};
+\draw [fill=qqqqff] (-3.06,-2.02) circle (2.5pt);
+\draw[color=qqqqff] (-2.936715880698198,-1.7156332884874055) node {$B$};
+\draw [fill=qqqqff] (7.82,-2.1) circle (2.5pt);
+\draw[color=qqqqff] (7.938548389914909,-1.8001998846819085) node {$C$};
+\draw [fill=uuuuuu] (2.400693981048979,0.7543814226611502) circle (1.5pt);
+\draw[color=uuuuuu] (2.526286233466707,0.9904977897366917) node {$O$};
+\draw [fill=uuuuuu] (-1.2967129804833217,-2.03296534573174) circle (1.5pt);
+\draw[color=uuuuuu] (-1.1777306798525322,-1.8001998846819085) node {$D$};
+\draw [fill=uuuuuu] (1.5182265727989228,3.3114566516141704) circle (1.5pt);
+\draw[color=uuuuuu] (1.6298803138049731,3.5444089948106834) node {$E$};
+\draw [fill=uuuuuu] (-2.5022291797119602,0.3397996242955545) circle (1.5pt);
+\draw[color=uuuuuu] (-2.3785763458144773,0.5845781280030771) node {$F$};
+\draw [fill=uuuuuu] (2.38,-2.06) circle (1.5pt);
+\draw[color=uuuuuu] (2.526286233466707,-1.7663732462041073) node {$M_A$};
+\draw [fill=uuuuuu] (3.29,1.79) circle (1.5pt);
+\draw[color=uuuuuu] (3.439605472367341,2.0729502210263306) node {$M_B$};
+\draw [fill=uuuuuu] (-2.15,1.83) circle (1.5pt);
+\draw[color=uuuuuu] (-1.9895700033197627,2.1236901787430322) node {$M_C$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\item \emph {APMO 2012, Problem 4}: Let $ABC$ be an acute triangle. Denote by $D$ the foot of the perpendicular line drawn from the point $A$ to the side $BC$, by $M$ the midpoint of $BC$, and by $H$ the orthocenter of $ABC$.  Let $E$ be the point of intersection of the circumcircle $\Gamma$ of the triangle $ABC$ and the half line $MH$, and $F$ the intersection (other than $E$) of the line $ED$ and the circle $\Gamma$. Prove that $\frac{BF}{CF}=\frac{AB}{AC}$ must hold.
+
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.45981873086263386,-3.4359451800232206) rectangle (18.967908013937272,5.973832034632025);
+\draw(3.2868412090251167,0.9412303107705409) circle (3.451824345592563cm);
+\draw (-0.08,0.18)-- (6.5,-0.32);
+\draw (1.8863175819497655,2.1375393784589187)-- (-0.08,0.18);
+\draw (1.8863175819497655,2.1375393784589187)-- (6.5,-0.32);
+\draw (2.04,4.16)-- (1.7271337240277036,0.04267980820458177);
+\draw (2.04,4.16)-- (-0.08,0.18);
+\draw (2.04,4.16)-- (6.5,-0.32);
+\draw (-0.08,0.18)-- (4.533682418050234,-2.2775393784589175);
+\draw (4.533682418050234,-2.2775393784589175)-- (6.5,-0.32);
+\draw (1.0349650448307646,3.5573620073712404)-- (4.533682418050234,-2.2775393784589175);
+\draw (1.0349650448307646,3.5573620073712404)-- (2.1950677506775067,-2.333387533875338);
+\begin{scriptsize}
+\draw [fill=qqqqff] (2.04,4.16) circle (2.5pt);
+\draw[color=qqqqff] (2.1587009608277885,4.470294921338817) node {$A$};
+\draw [fill=qqqqff] (-0.08,0.18) circle (2.5pt);
+\draw[color=qqqqff] (0.030097856614928975,0.4833875197972759) node {$B$};
+\draw [fill=qqqqff] (6.5,-0.32) circle (2.5pt);
+\draw[color=qqqqff] (6.618631274416637,-0.023422743110547095) node {$C$};
+\draw [fill=uuuuuu] (1.7271337240277036,0.04267980820458177) circle (1.5pt);
+\draw[color=uuuuuu] (1.8377211276528336,0.2806634146341467) node {$D$};
+\draw [fill=uuuuuu] (1.8863175819497655,2.1375393784589187) circle (1.5pt);
+\draw[color=uuuuuu] (2.0066578819554413,2.3754791679864815) node {$H$};
+\draw [fill=uuuuuu] (3.21,-0.07) circle (1.5pt);
+\draw[color=uuuuuu] (3.324364565515783,0.16240768662232133) node {$M$};
+\draw [fill=uuuuuu] (1.0349650448307646,3.5573620073712404) circle (1.5pt);
+\draw[color=uuuuuu] (1.145080435012141,3.7945479041283856) node {$E$};
+\draw [fill=uuuuuu] (4.533682418050234,-2.2775393784589175) circle (1.5pt);
+\draw[color=uuuuuu] (4.658964924506384,-2.033770119311578) node {$G$};
+\draw [fill=uuuuuu] (2.1950677506775067,-2.333387533875338) circle (1.5pt);
+\draw[color=uuuuuu] (2.3107440397001358,-2.101344821032621) node {$F$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\textbf {Solution}: Let $G$ be a point such that $BHCG$ is a parallelogram. One crucial identity is that: $\angle BAC+\angle BGC=\angle BAC+\angle BHC=180^{\circ}$ so $G$ is on $\Gamma$. Now $HG$ passes through $M$ (recall one property of a parallelogram), we know that $G$ is also meeting point of line $MH$ and $\Gamma$ besides $E$.
+
+Now combining third and fourth identity in section 2 we have $1=\dfrac{BM}{MC}=\dfrac{BE\cdot\sin\angle BEM}{CE\cdot\sin\angle CEM}=\dfrac{BE\cdot BG}{CE\cdot CG}=\dfrac{BE\cdot HC}{CE\cdot BH}$ (recall another property of a parallelogram!) so
+
+ $$\frac{BE}{CE}=\frac{BH}{CH}=\frac{\sin\angle HCB}{\sin\angle HBC}=\frac{\sin (90^{\circ}-\angle B)}{\sin (90^{\circ}-\angle C)}=\frac{\cos\angle B}{\cos\angle C}...(1)$$. 
+Also notice that 
+$$\frac{BD}{DC}=\frac{AB\cdot\sin\angle BAD}{CA\cdot\sin\angle CAD}=\frac{\sin\angle C\sin\angle (90^{\circ}-\angle B)}{\sin\angle B\sin\angle (90^{\circ}-\angle C)}=\frac{\sin\angle C\cos\angle B}{\sin\angle B\cos\angle C}...(2)$$ and $\dfrac{BD}{BC}=\dfrac{BE}{CE}\cdot \dfrac{BF}{CF}$. This, combined with (1) and (2), entails that $\dfrac{BF}{CF}=\dfrac{\sin\angle C}{\sin\angle B}=\dfrac{AB}{AC}.$ $\blacksquare$
+
+Below, a daunting problem 5 on the APMO can be vulnerable under the hands of a calculation-hacker. This, however, requires the flexibility of converting ratios in terms of sines to those in terms of lengths (and vice versa).
+
+\item\emph {APMO 2013, Problem 5.} Let $ABCD$ be a quadrilateral inscribed in a circle $\omega$, and let $P$ be a point on the extension of $AC$ such that $PB$ and $PD$ are tangent to $\omega$. The tangent at $C$ intersects $PD$ at $Q$ and the line $AD$ at $R$.  Let $E$ be the second point of intersection between $AQ$ and $\omega$. Prove that $B, E, R$ are collinear.
+
+\textbf {Solution.}
+
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.3142820352854103,-3.9126154612485298) rectangle (26.08469099646867,8.569226096472404);
+\draw(5.06,2.6) circle (3.9643410549547826cm);
+\draw (1.92,0.18)-- (4.6541048166111345,-3.3675574893218867);
+\draw (4.6541048166111345,-3.3675574893218867)-- (4.420585883083908,6.512435250210336);
+\draw (4.420585883083908,6.512435250210336)-- (8.646863477370747,-1.8039399232146316);
+\draw (7.843394412597018,-0.222891344689642)-- (4.6541048166111345,-3.3675574893218867);
+\draw (4.420585883083908,6.512435250210336)-- (6.491791462974107,-1.5555831272150753);
+\draw (4.606141643190107,-1.3382753321668384)-- (8.646863477370747,-1.8039399232146316);
+\draw [dash pattern=on 6pt off 6pt] (1.92,0.18)-- (8.646863477370747,-1.8039399232146316);
+\draw (4.420585883083908,6.512435250210336)-- (1.92,0.18);
+\draw (1.92,0.18)-- (4.606141643190107,-1.3382753321668384);
+\begin{scriptsize}
+\draw [fill=qqqqff] (1.92,0.18) circle (2.5pt);
+\draw[color=qqqqff] (2.0845970856623475,0.591603844140892) node {$B$};
+\draw [fill=xdxdff] (4.606141643190107,-1.3382753321668384) circle (2.5pt);
+\draw[color=xdxdff] (4.7736832381336445,-0.9322116422595093) node {$C$};
+\draw [fill=xdxdff] (4.420585883083908,6.512435250210336) circle (2.5pt);
+\draw[color=xdxdff] (4.572001776698297,6.910956302448438) node {$A$};
+\draw [fill=uuuuuu] (4.6541048166111345,-3.3675574893218867) circle (1.5pt);
+\draw[color=uuuuuu] (4.818501340674833,-3.0610715129659525) node {$P$};
+\draw [fill=uuuuuu] (7.843394412597018,-0.222891344689642) circle (1.5pt);
+\draw[color=uuuuuu] (8.0005866210992,0.09860471618782089) node {$D$};
+\draw [fill=uuuuuu] (6.491791462974107,-1.5555831272150753) circle (1.5pt);
+\draw[color=uuuuuu] (6.656043544863552,-1.2459383600478273) node {$Q$};
+\draw [fill=uuuuuu] (6.384238281654683,-1.1366285570551762) circle (1.5pt);
+\draw[color=uuuuuu] (6.543998288510582,-0.8201663859065387) node {$E$};
+\draw [fill=uuuuuu] (8.646863477370747,-1.8039399232146316) circle (1.5pt);
+\draw[color=uuuuuu] (8.807312466840589,-1.4924379240243628) node {$R$};
+\end{scriptsize}
+\end{tikzpicture}
+
+ It suffices to prove that $\frac{\sin\angle CBE}{\sin\angle ABE}=\frac{\sin\angle CBR}{\sin\angle ABR}$. Taking $\triangle ABC$ as a reference, the left hand side is simply $\frac{CE}{AE}$ (identity 4) while the right hand side is $$\frac{CR}{AR}\cdot\frac{\sin\angle BCR}{\sin\angle BAR}=\frac{\sin\angle CAD}{\sin\angle ACR}\cdot\frac{BC}{BD}=\frac{CD}{AC}\cdot\frac{BC}{BD}$$ due to identity 4 and corollary 1 of identity 5. Now to prove that the ratios are the same, we need $\frac{CD\cdot BC\cdot AE}{CE\cdot CA\cdot BD}=1$.  From the statment of the problem, both $ABCD$ and $ACED$ are harmonic quadrilaterals, and by Ptolemy's theorem, $AC\cdot BD=AB\cdot CD+AD\cdot BC=AD\cdot BC+AD\cdot BC=2AD\cdot BC.$  Likewise, $AE\cdot CD=2AD\cdot CE.$ Therefore, $\frac{CD\cdot BC\cdot AE}{CE\cdot CA\cdot BD}=\frac{2AD\cdot CE\cdot BC}{2AD\cdot BC\cdot CE}=1.$ $\blacksquare$
+
+Now brace yourselves. We are going to use the first corollary of identity 5 twice.
+\item \emph{IMO 2011, G5}. Let $ABC$ be a triangle with incenter $I$ and circumcircle $\omega$. Let $D$ and $E$ be the second intersection points of $\omega$ with the lines $AI$ and $BI$, respectively. The chord $DE$ meets $AC$ at a point $F$, and $BC$ at a point $G$. Let $P$ be the intersection point of the line through $F$ parallel to $AD$ and the line through $G$ parallel to $BE$. Suppose that the tangents to $\omega$ at $A$ and at $B$ meet at a point $K$. Prove that the three lines $AE, BD,$ and $KP$ are either parallel or concurrent.
+
+\textbf {Solution}: Let's split the problems into two parts:
+\\ \emph{Part 1: prove that $K, I, P$ are collinear.}
+\\Proof: First notice that $\angle DEB=\angle DAB=\frac{\angle A}{2}=\angle CAD=\angle CED$ and similarly $\angle CDE=\frac{\angle B}{2}=\angle EDA$. Therefore $\triangle CED\cong\triangle IED$ and $ED$ is the perpendicular bisector of segment $CI$. This entails that $CF=CG$ and $\angle CFG=\angle CGF=\angle IFG=\angle IGF=90^{\circ}-\frac{\angle C}{2}.$Knowing that $FP\parallel AI$ and $GP\parallel BI$, we want to prove that $\angle FPI=\angle AIK$, or equivalently $\angle GPI=\angle BIK$. It suffices to prove that $\frac{\sin\angle FPI}{\sin\angle GPI}=\frac{\sin\angle AIK}{\sin\angle BIK}$.
+
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.527272727272727,-3.39454545454545) rectangle (17.381818181818183,6.732727272727267);
+\draw(2.162839829942502,1.4242993272629518) circle (3.618338460700848cm);
+\draw (0.6181818181818187,4.696363636363633)-- (3.861297172049131,-1.7706366459970866);
+\draw (-0.7636363636363631,-0.7036363636363628)-- (3.5405214941984724,4.770097654741744);
+\draw (3.5405214941984724,4.770097654741744)-- (3.861297172049131,-1.7706366459970866);
+\draw (0.6181818181818187,4.696363636363633)-- (5.5636363636363635,2.66);
+\draw (-0.7636363636363631,-0.7036363636363628)-- (5.5636363636363635,2.66);
+\draw (0.6181818181818187,4.696363636363633)-- (-0.7636363636363631,-0.7036363636363628);
+\draw (3.604442394979802,3.466726928270348)-- (4.190404128514835,2.298277988671306);
+\draw (3.6927826311665535,1.6654369525663366)-- (4.190404128514835,2.298277988671306);
+\draw (3.604442394979802,3.466726928270348)-- (1.733588662509991,2.472163880836684);
+\draw (1.733588662509991,2.472163880836684)-- (3.6927826311665535,1.6654369525663366);
+\draw (0.6181818181818187,4.696363636363633)-- (-3.3336448230410487,2.830807184592077);
+\draw (-3.3336448230410487,2.830807184592077)-- (-0.7636363636363631,-0.7036363636363628);
+\draw [domain=0.6181818181818187:17.381818181818183] plot(\x,{(--13.67878875800446--0.07373401837811144*\x)/2.922339676016654});
+\draw [domain=-0.7636363636363631:17.381818181818183] plot(\x,{(-4.069071630730523-1.0670002823607239*\x)/4.624933535685494});
+\draw [dash pattern=on 5pt off 5pt,domain=-3.3336448230410487:17.381818181818183] plot(\x,{(--19.523868632187387-0.532529195920771*\x)/7.5240489515558835});
+\begin{scriptsize}
+\draw [fill=qqqqff] (0.6181818181818187,4.696363636363633) circle (2.5pt);
+\draw[color=qqqqff] (0.7454545454545459,5.02363636363636) node {$A$};
+\draw [fill=qqqqff] (-0.7636363636363631,-0.7036363636363628) circle (2.5pt);
+\draw[color=qqqqff] (-0.6363636363636358,-0.37636363636363585) node {$B$};
+\draw [fill=qqqqff] (5.5636363636363635,2.66) circle (2.5pt);
+\draw[color=qqqqff] (5.6909090909090905,2.987272727272725) node {$C$};
+\draw [fill=uuuuuu] (1.733588662509991,2.472163880836684) circle (1.5pt);
+\draw[color=uuuuuu] (1.854545454545455,2.7327272727272707) node {$I$};
+\draw [fill=uuuuuu] (3.861297172049131,-1.7706366459970866) circle (1.5pt);
+\draw[color=uuuuuu] (3.9818181818181824,-1.5218181818181804) node {$D$};
+\draw [fill=uuuuuu] (3.5405214941984724,4.770097654741744) circle (1.5pt);
+\draw[color=uuuuuu] (3.6727272727272733,5.02363636363636) node {$E$};
+\draw [fill=uuuuuu] (3.604442394979802,3.466726928270348) circle (1.5pt);
+\draw[color=uuuuuu] (3.727272727272728,3.7145454545454517) node {$F$};
+\draw [fill=uuuuuu] (3.6927826311665535,1.6654369525663366) circle (1.5pt);
+\draw[color=uuuuuu] (3.818181818181819,1.9145454545454532) node {$G$};
+\draw [fill=uuuuuu] (-3.3336448230410487,2.830807184592077) circle (1.5pt);
+\draw[color=uuuuuu] (-3.2,3.078181818181816) node {$K$};
+\draw [fill=uuuuuu] (4.190404128514835,2.298277988671306) circle (1.5pt);
+\draw[color=uuuuuu] (4.3090909090909095,2.550909090909089) node {$P$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Now from the corollary we have: $$\frac{\sin\angle FPI}{\sin\angle GPI}=\frac{FI}{GI}\cdot\frac{\sin\angle PFI}{\sin\angle PGI}=\frac{\sin (\angle CFI-\angle CFP)}{\sin(\angle CGI-\angle CGP)}=\dfrac{\sin (180^{\circ}-\angle C-\frac{\angle A}{2})}{\sin (180^{\circ}-\angle C-\frac{\angle B}{2})}=\dfrac{\sin (\angle C+\frac{\angle A}{2})}{\sin (\angle C+\frac{\angle B}{2})}$$ (Why? Recall that $FP\parallel AI\Rightarrow \angle CFP=\angle CAI$, $GP\parallel BI\Rightarrow\angle CPG=\angle CBI$, and that $CFIG$ is a rhombus so $FI=GI$). Then $$\frac{\sin\angle AIK}{\sin\angle BIK}=\frac{AK}{BK}\cdot\frac{\sin\angle IAK}{\sin\angle IBK}=\dfrac{\sin (\angle C+\frac{\angle A}{2})}{\sin (\angle C+\frac{\angle B}{2})}=\frac{\sin\angle FPI}{\sin\angle GPI},$$ as desired. (Don't ask me why $AK=BK$. You should know it.)
+ 
+\emph{Part 2: prove that $AE, BD$ and $KI$ are concurrent (or parallel).}
+\\Proof: For convenience we assume that $AE$ and $BD$ are not parallel; the limit case (i.e. parallel) happens when $\angle C=60^{\circ}$ and quadrilateral $AIBK$ is cyclic, which is left as an exercise (no trigo needed because angle chasing method becomes straightforward). Now let $AE$ and $BD$ intersect at $Q$. We need $\frac{\sin\angle AKQ}{\sin\angle BKQ}=\frac{\sin\angle AKI}{\sin\angle BKI}$, or $\frac{AQ}{BQ}\cdot\frac{\sin\angle QAK}{\sin\angle QBK}=\frac{AI}{BI}\cdot\frac{\sin\angle IAK}{\sin\angle IBK}$. Now $\frac{AQ}{BQ}=\frac{\sin\angle QBA}{\sin\angle QAB}=\frac{\sin\angle DBA}{\sin\angle EAB}=\frac{DA}{EB}$ and $\angle QAK=\angle EAK=180^{\circ}-\angle EBA$ so $\sin\angle EAK=\sin\angle EBA$. Similarly $\sin\angle QBK=\sin\angle DAB$. Thus, $$\frac{\sin\angle QAK}{\sin\angle QBK}=\frac{\sin\angle EBA}{\sin\angle DAB}=\frac{AI}{BI}=\dfrac{\sin\frac{\angle B}{2}}{\sin\frac{\angle A}{2}}$$ and $\frac{\sin\angle IAK}{\sin\angle IBK}=\frac{\sin\angle DAK}{\sin\angle EBK}=\frac{AD}{EB}.$ Therefore $\frac{AQ}{BQ}\cdot\frac{\sin\angle QAK}{\sin\angle QBK}=\frac{\sin\frac{\angle B}{2}}{\sin\frac{\angle A}{2}}\cdot\frac{AD}{EB}=\frac{AI}{BI}\cdot\frac{\sin\angle IAK}{\sin\angle IBK}$. $\blacksquare$
+
+If you enjoy some trigonometric brute force, here you are:
+\item\emph {RIMO 2014, Day 1, Problem 2.} In a quadrilateral $ABCD$ with $\angle B=\angle D=90^{\circ}$, the extensions of $AB$ and $DC$ meet at $E$; and the extensions of $AD$ and $BC$ meet at $F$. A line through $B$ parallel to $CD$ intersects the circumcircle $\omega$ of the triangle $ABF$ at $G$ distinct from $B$; the line $EG$ intersects $\omega$ at $P$ distinct from $G$; and the line $AP$ intersects $CE$ at $M$. Prove that $M$ is the midpoint of $CE$.
+
+\textbf {Solution}. 
+
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.464267840621914,-1.7696316073790264) rectangle (14.06315514961098,6.600015274664535);
+\draw(-0.56,2.24) circle (3.4cm);
+\draw (2.5613158779100726,3.5881050368226015)-- (-0.56,-1.16);
+\draw (-0.56,-1.16)-- (-0.56,5.64);
+\draw (-3.6813158779100723,3.588105036822602)-- (7.329682285424782,0.45346971093085037);
+\draw (-0.56,5.64)-- (-3.6813158779100723,3.588105036822602);
+\draw (-0.56,5.64)-- (7.329682285424782,0.45346971093085037);
+\draw (-0.56,0.4534697109308503)-- (7.329682285424782,0.45346971093085037);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-0.56,5.64) circle (2.5pt);
+\draw[color=qqqqff] (-0.4522468038074915,5.908805657835084) node {$A$};
+\draw [fill=qqqqff] (-0.56,-1.16) circle (2.5pt);
+\draw[color=qqqqff] (-0.4522468038074915,-0.8830801423151663) node {$F$};
+\draw [fill=xdxdff] (2.5613158779100726,3.5881050368226015) circle (2.5pt);
+\draw[color=xdxdff] (2.673222767943069,3.8652293993827964) node {$B$};
+\draw [fill=xdxdff] (0.5006649575354789,0.4534697109308503) circle (2.5pt);
+\draw[color=xdxdff] (0.5995939174547166,0.7247335316142072) node {$C$};
+\draw [fill=uuuuuu] (7.329682285424782,0.45346971093085037) circle (1.5pt);
+\draw[color=uuuuuu] (7.4365586056590685,0.6646283475420811) node {$E$};
+\draw [fill=xdxdff] (-3.6813158779100723,3.588105036822602) circle (2.5pt);
+\draw[color=xdxdff] (-3.5777163755580528,3.8652293993827964) node {$G$};
+\draw [fill=uuuuuu] (2.8033369669348875,1.7420397135822705) circle (1.5pt);
+\draw[color=uuuuuu] (2.913643504231574,1.9568898050927923) node {$P$};
+\draw [fill=uuuuuu] (3.9151736214801307,0.4534697109308503) circle (1.5pt);
+\draw[color=uuuuuu] (4.025589409565908,0.6646283475420811) node {$M$};
+\draw [fill=uuuuuu] (-0.56,0.4534697109308503) circle (1.5pt);
+\draw[color=uuuuuu] (-0.4522468038074915,0.6646283475420811) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+
+For brevity denote $\angle EAF,\angle FEA,\angle AFE$ as $\angle A, \angle E,\angle F$ respectively. Now $$\frac{DM}{ME}=\frac{AD}{AE}\cdot\frac{\sin\angle PAF}{\sin\angle BAP}=\cos\angle EAD\cdot\frac{\sin\angle PGF}{\sin\angle BGP}=\cos\angle A\cdot\frac{EF}{EB}\cdot\frac{\sin\angle EFG}{\sin\angle EBG}$$ \\$=\cos\angle A\cdot\dfrac{1}{\cos\angle E}\cdot\dfrac{\sin(\angle F+\angle AFG)}{\cos\angle A}=\dfrac{\sin (\angle F-\angle A+90^{\circ})}{\cos (180^{\circ}-\angle F-\angle A)}$ \\$=\dfrac{\cos\angle F\cos\angle A+\sin\angle F\sin\angle A}{\sin\angle F\sin\angle A-\cos\angle F\cos\angle A}.$
+
+ (Well just in case you are lost on how I obtain the equivalence of the angles, $\angle EBG=180^{\circ}-\angle ABG=90^{\circ}+\angle A$ and $\angle AFG=\angle BFA=90^{\circ}-\angle A$). 
+
+Now $$\frac{CD}{DE}=\frac{\tan\angle FAC}{\tan\angle FAE}=\frac{\tan (90^{\circ}-\angle F)}{\tan\angle A}=\frac{1}{\tan\angle A\tan\angle F}=\frac{\cos\angle A\cos\angle F}{\sin\angle A\sin\angle F}.$$ Therefore $$\frac{CM}{ME}=\frac{DM}{ME}-\frac{DC}{ME}=\frac{\cos\angle F\cos\angle A+\sin\angle F\sin\angle A}{\sin\angle F\sin\angle A-\cos\angle F\cos\angle A}-\frac{\cos\angle A\cos\angle F}{\sin\angle A\sin\angle F}\cdot\frac {DE}{ME}$$. Now $$\frac {DE}{ME}=\frac {DM+ME}{ME}=1+\frac{DM}{ME}=1+\frac{\cos\angle F\cos\angle A+\sin\angle F\sin\angle A}{\sin\angle F\sin\angle A-\cos\angle F\cos\angle A}$$ so our original ratio $\frac{CM}{ME}$ becomes $\dfrac{\cos\angle F\cos\angle A+\sin\angle F\sin\angle A}{\sin\angle F\sin\angle A-\cos\angle F\cos\angle A}-\dfrac{\cos\angle A\cos\angle F}{\sin\angle A\sin\angle F}$ \\$-\dfrac{\cos\angle A\cos\angle F}{\sin\angle A\sin\angle F}\cdot \dfrac{\cos\angle F\cos\angle A+\sin\angle F\sin\angle A}{\sin\angle F\sin\angle A-\cos\angle F\cos\angle A}=1.$ $\blacksquare$
+\\Not convinced? If $\cos\angle F\cos\angle A=z$ and $\sin\angle F\sin\angle A=y$ then what we have is $\frac{y+z}{y-z}-\frac{z}{y}-\frac{z}{y}\cdot\frac{y+z}{y-z}=1+\frac{2z}{y-z}-\frac{z}{y}(1+\frac{y+z}{y-z})=1+\frac{2z}{y-z}-\frac{z}{y}(\frac{2y}{y-z})=1+\frac{2z}{y-z}-\frac{2z}{y-z}=1.$
+
+For the final blow we are going to be crazy: virtually turning a geometry problem into an algebra one. This is, of course, not the most desirable solution but what else can we do when we are desperate?
+\item\emph {IMO 2007, G2}. Given an isosceles triangle $ABC$ with $AB=AC$.  The midpoint of side $BC$ is denoted by $M$. Let $X$ be a variable point on the shorter arc $MA$ of the circumcircle of triangle $ABM$. Let $T$ be the point in the angle domain $BMA$, for which $\angle TMX= 90^{\circ}$ and $TX=BX$. Prove that $\angle MTB-\angle CTM$ does not depend on $X$.
+
+\textbf {Solution.} 
+
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.3339073253690343,-0.9960911040494497) rectangle (11.267226417831495,5.591588456787678);
+\draw(0.43,2.33) circle (2.4829418035870274cm);
+\draw (1.6,4.52)-- (1.5134769728982702,0.09592801163453935);
+\draw (-0.74,0.14)-- (3.7669539457965406,0.05185602326907868);
+\draw (-0.8825369262099823,2.2870157791926236)-- (1.5134769728982702,0.09592801163453935);
+\draw (-0.8825369262099823,2.2870157791926236)-- (-0.74,0.14);
+\draw (-0.8825369262099823,2.2870157791926236)-- (3.7669539457965406,0.05185602326907868);
+\begin{scriptsize}
+\draw [fill=qqqqff] (1.6,4.52) circle (2.5pt);
+\draw[color=qqqqff] (1.6872974334902529,4.728212140914948) node {$A$};
+\draw [fill=qqqqff] (-0.74,0.14) circle (2.5pt);
+\draw[color=qqqqff] (-0.6544629849042732,0.35219519745042915) node {$B$};
+\draw [fill=xdxdff] (1.5134769728982702,0.09592801163453935) circle (2.5pt);
+\draw[color=xdxdff] (1.592680850928858,0.30488690616973163) node {$M$};
+\draw [fill=qqqqff] (3.7669539457965406,0.05185602326907868) circle (2.5pt);
+\draw[color=qqqqff] (3.8516517595821633,0.26940568770920853) node {$C$};
+\draw [fill=xdxdff] (2.751786808385218,1.450053401388251) circle (2.5pt);
+\draw[color=xdxdff] (2.8345234970471673,1.6650002804897848) node {$X$};
+\draw [fill=uuuuuu] (-0.8825369262099823,2.2870157791926236) circle (1.5pt);
+\draw[color=uuuuuu] (-0.7963878587463656,2.457414159441468) node {$T$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Well we can prove that $\cos (\angle MTB-\angle CTM)$ is constant, but we need to have both sines and coses of the two angles. Name $\angle BAM=b$ and $\angle AMX=\angle BMT=x$, assuming $AB=1$, all chords on the circumcircle of $BAM$ is equal to the sine of angle subtended by that chord. Therefore $CM=BM=\sin b$, $TX=BX=\sin (90^{\circ}+x)=\cos x$ and $MX=\sin (180^{\circ}-b-(90^{\circ}+x))=\cos (b+x)$. Now $TM=\sqrt{TX^{2}-MX^{2}}=\sqrt{\cos ^{2}x-\cos ^{2}(b+x)}=\sqrt{-\sin (-b)\sin (b+2x)}=\sqrt{\sin b\sin (b+2x)}$ by the final identity in section 1 above. First of all let's prove that $BT\cdot CT=\sin b\sin (2x)$. Observe that: $$BT^{2}=BM^{2}+MT^{2}-2BM\cdot MT\cdot\cos\angle BMT$$ $$=\sin ^{2} b+\sin b\sin (b+2x)-2\sin b\sqrt{\sin b\sin (b+2x)}\cos x$$ while $$CT^{2}=CM^{2}+MT^{2}-2CM\cdot MT\cdot\cos\angle CMT$$ $$=\sin ^{2} b+\sin b\sin (b+2x)+2\sin b\sqrt{\sin b\sin (b+2x)}\cos x.$$ Multiplying the two yields 
+
+$(\sin ^{2} b+\sin b\sin (b+2x))^{2}-(2\sin b\sqrt{\sin b\sin (b+2x)}\cos x)^{2}$\\$=\sin ^{4} b+\sin ^{2}b\sin ^{2}(b+2x)+2\sin ^{3} b\sin (b+2x)-4\sin^{3} b\sin (b+2x)\cos ^{2}x$\\$=\sin ^{2} b (\sin ^{2} b+\sin ^{2}(b+2x)+2\sin b\sin (b+2x)(1-2\cos ^{2}x))$\\$=\sin ^{2} b (\sin ^{2} b+\sin ^{2}(b+2x)-2\sin b\sin (b+2x)\cos (2x))$\\ because $\cos 2x=\cos^{2} x-1$. Now expand $\sin (b+2x)$, we get $\sin b\cos (2x)+\cos b\sin (2x)$ and $\sin ^{2}(b+2x)=\sin ^{2}b\cos ^{2}(2x)+\cos ^{2}b\sin ^{2}(2x)$+$2\cos b\sin b\cos (2x)\sin (2x)$. The original expression then becomes 
+
+$\sin^2 {b}(\sin ^{2} b-\sin ^{2}b\cos ^{2}(2x)+\cos^{2}b\sin^{2} (2x))$\\$=\sin^2 {b}(\sin ^{2} b(1-\cos ^{2}(2x))+\cos^{2}b\sin^{2} (2x))$\\$=\sin^2 {b}(\sin ^{2} b\sin ^{2}(2x)+\cos^{2}b\sin^{2} (2x))$\\$=\sin ^{2}b\sin ^{2} (2x)$ 
+
+because $\sin ^{2}a+\cos ^{2}a\equiv 1$ for any $a$.
+
+Now $\cos\angle BTM=\frac{BT^{2}+TM^{2}-BM^{2}}{2\cdot BT\cdot TM}$, but since $BT^{2}=BM^{2}+MT^{2}-2BM\cdot MT\cdot\cos\angle BMT$ we can write the cosine as $\frac{2TM^{2}-2BM\cdot MT\cos\angle BMT}{2\cdot BT\cdot TM}=\frac{TM-BM\cdot\cos\angle BMT}{BT}=\frac{TM-\sin b\cos x}{BT}.$ Similarly $\cos\angle CTM=\frac{TM+\sin b\cos x}{CT}$. Therefore $\cos\angle BTM\cdot \cos\angle CTM=\frac{TM^{2}-\sin ^{2}b\cos ^{2}x}{BT\cdot CT}=\frac{\sin b\sin (b+2x)-\sin ^{2}b\cos ^{2}x}{\sin b\sin (2x)}.$ Meanwhile, $\sin\angle BTM=\sin\angle TMB\cdot\frac{BM}{TB}=\frac{\sin b\sin x}{BT}$ and $\sin\angle CTM=\sin\angle TMC\cdot\frac{CM}{TC}=\frac{\sin b\sin x}{CT}$ so $\sin\angle BTM\cdot\sin\angle CTM=\frac{\sin ^{2}b\sin ^{2}x}{BT\cdot CT}=\frac{\sin ^{2}b\sin ^{2}x}{\sin b\sin (2x)}.$ Therefore 
+
+$\cos (\angle MTB-\angle CTM)=\cos\angle BTM\cdot \cos\angle CTM+\sin\angle BTM\cdot\sin\angle CTM$\\$=\frac{\sin b\sin (b+2x)-\sin ^{2}b\cos ^{2}x}{\sin b\sin (2x)}+\frac{\sin ^{2}b\sin ^{2}x}{\sin b\sin (2x)}$\\$=\frac{\sin (b+2x)-\sin b\cos ^{2}x+\sin b\sin ^{2}x}{\sin (2x)}$\\$=\frac{\sin b\cos (2x)+\cos b\sin (2x)-\sin b\cos (2x)}{\sin (2x)}$\\$=\cos b.$ Independent of $x$ isn't it? In fact it is now evident that the angle difference is indeed $b$. (phew!) $\blacksquare$
+
+\end{enumerate}
+
+\section {Practice problems.}
+
+It's finally your turn to demonstrate your ability in problem solving with one extra tool! While you may enjoy solving these problems using trigonometry, please look up the official solutions to understand the synthetic solutions after you have finished them.
+
+\begin{enumerate}
+\item Let $ABCD$ be a quadrilateral with $\angle B=\angle D=90^{\circ}$. Let $E$ and $F$ be the feet of altitude from $A$ and $C$ to line $BD$, respectively. Prove that $BE=DF$.
+
+\item (Proof of harmonic quadrilateral identity) Let $ABCD$ be a cyclic quadrilateral, inscribed in 'circumcircle' $\Gamma$. (Assume no angle of the cyclic quadrilateral is right). Then the tangent to $\Gamma$ at $A$, the tangent to $\Gamma$ at $C$ and line $BD$ are concurrent if and only if $AB\cdot CD=AD\cdot BC$. Notice that this also entails that the tangent at $B$, the tangent at $D$ and line $AC$ are concurrent.
+
+\item\emph {TOT, Fall 2010, Junior A-Level Problem 6.} In acute triangle $ABC$, an arbitrary point $P$ is chosen on altitude $AH$. Points $E$ and $F$ are the midpoints of sides $CA$ and $AB$ respectively. The perpendiculars from $E$ to $CP$ and from $F$ to $BP$ meet at point $K$. Prove that $KB=KC$.
+
+\item\emph {JOM 2013, G6.} Consider a triangle $ABC$. Points $P, Q$ lie on $AB, AC$ respectively such that the four points $B, C, P, Q$ are concyclic. The reflection of $P$ across $AC$ is $P_0$, and the reflection of $Q$ across $AB$ is $Q_0$.
+The circumcircles $\gamma_1$ and $\gamma_2$ of $APP'$ and $AQQ'$, respectively, intersect again at $S$ distinct from $A$. Furthermore, $BS$ intersects $\gamma_1$ again at $X$, and $CS$ intersects $\gamma_2$ again at $Y$.
+
+Prove that the four points $P, Q, X, Y$ lie on a circle.
+
+\item\emph {IMO 2012, G2.} Let $ABCD$ be a cyclic quadrilateral whose diagonals $AC$ and $BD$ meet at $E$. The extensions of the sides $AD$ and $BC$ beyond $A$ and $B$ meet t $F$. Let $G$ be the point such that $ECGD$ is a parallelogram, and let $H$ be the image of $E$ under the reflection in $AD$. Prove that $D, H, F, G$ are concyclic.
+
+\item\emph {IMO 2012, G4}. Let $ABC$ be a triangle with $AB\neq AC$ and circumcenter $O$. The bisector of $\angle BAC$ intersects $BC$ at $D$. Let $E$ be the reflection of $D$ with respect to the midpoint of $BC$. The lines through $D$ and $E$ perpendicular to $BC$ intersect the lines $AO$ and $AD$ at $X$ and $Y$ respectively. Prove that the quadrilateral $BXCY$ is cyclic.
+
+\item\emph {IMO 2012, G3}. In an acute triangle $ABC$ the points $D, E$, and $F$ are the feet of altitudes through $A, B$, and $C$ respectively.  The incenters of the triangles $AEF$ and $BDF$ are $I_1$ and $I_2$ respectively; the circumcenters of the triangles $ACI_1$ and $BCI_2$ are $O_1$ an $O_2$ respectively. Prove that $I_1I_2$ and $O_1O_2$ are parallel.
+
+\item\emph {IMO 2008, G4}. In an acute triangle $ABC$ segments $BE$ and $CF$ are altitudes.  Two circles passing through the points $A$ and $F$ are tangent to the line $BC$ at the points $P$ and $Q$ so that $B$ lies between $C$ and $Q$. Prove that the lines $PE$ and $QF$ intersect on the circumcircle of triangle $AEF$.
+
+\item\emph {IMO 2011, G7}. Let$ABCDEF$ be a convex hexagon all of whose sides are tangent to a circle $\omega$ with center $O$. Suppose that the circumcircle of triangle $ACE$ is concentric with $\omega$. Let $J$ be the foot of the perpendicular from $B$ to $CD$. Suppose that the perpendicular from $B$ to $DF$ intersects the line $EO$ at a point $K$. Let $L$ be the foot of the perpendicular from $K$ to $DE$. Prove that $DJ=DL$.
+
+\end{enumerate}
+
+\section {Hints (or outlines) to practice problems.}
+\begin{enumerate}
+
+\item No hint (straightforward application of third identity in section 2).
+
+\item Let tangents at $A$ and $C$ intersect at $P$. Try to prove that $\frac{\sin\angle APD}{\sin\angle CPD}=(\frac{AD}{DC})^{2}$ using the first corollary of fact 5 at section 2.
+
+\item Relate $\frac{\tan\angle ABC}{\tan\angle ACB}$ to $\frac{BH}{HC}.$ What can you say about $\frac{\tan\angle PBC}{\tan\angle PCB}$? As we want to show that $K$ is on the perpendicular bisector of $AB$, it will be extremely useful to draw the midpoint of $BC$ and the altitude from it.
+
+\item By radical axis identity we need to have $PY, QX, AS$ concurrent. Now we know that $PY$ divides $AS$ in the ratio $\frac{AP}{AY}\cdot\frac{SP}{SY}$. (Notice that $\sin\angle PAY=\sin\angle PSY$ for they are supplementary. Similarly $QX$ divides $AS$ in the ratio $\frac{AQ}{AX}\cdot\frac{SQ}{SX}$. We want the two ratios to be the same.
+
+\item One important lemma is $\triangle FDG\sim\triangle FBE$. To prove that $\angle DFG=\angle BFE$, bear in mind the second corollary following from identity 5 in section 2 (twist, and use it in 'reflection') and finish the lemma using the first corollary.
+
+\item Locate the second intersection of $AD$ and the circumcircle of triangle $ABC$. Reflect $Y$ in the perpendicular bisector of $BC$. Then do power of point. (Remember to write each relevant side lengths in terms of the product of other known length and sine/cos of some angle, if necessary!) 
+
+\item The main part of it is to prove that $AI_1I_2B$ is cyclic, and finish things off using radical axis identity. Remember, triangles $AEF$ and $ABC$ are similar with similitude $\cos\angle ???$, so this is the ratio $\frac{AI_1}{AI}$ ($I$ is the incenter of $ABC$). The identity $1-\cos (2A)=2\sin ^{2}A$ will also be useful here.
+
+\item Our aim is to prove that $\angle QEB=\angle CEP$. Now use fact 3 of section 2 on triangle $BFC$ and point $Q$, then on triangle $BEC$ and point $P$. How are we going to write $BQ$ and $BP$ in terms of $AB, BC, CA$, $\sin\angle A$, $\cos\angle A$, $\sin\angle B$, $\cos\angle B$, $\sin\angle C$, $\cos\angle C$?
+
+\item A problem that befits G7 should be hard, but there is a striaghtforward trigonometric hack. Now find three pairs of sides of equal length, and locate three angles that are the same. Aren't our job reduced to proving $CJ=EL$? Now with $DF\perp BK$ we have $BF^{2}-BD^{2}=KF^{2}-KD^{2}$. Try to express the squares of four lengths interms of $AF, AB, BC, CD,$ $EF, EK, DE, \angle A$ and $\frac{A}{2}$ so that we obtain $EK$ (and hence $EL$) in relation to $BC$. Be sure to cover cases of $\angle C$ being acute, obtuse and right.
+ 
+\end{enumerate}
+
+\section {Final advice}
+
+Not all geometric problems are trigo-friendly as shown in the examples here; otherwise, I would have solved most hard geometry problems on the IMO. Therefore this hack is not a panacea for geometry and students should still improve on other geometric skills (particularly synthetic geometry). Technically speaking, some other problems may still be solvable using trigs, but may require skilful manipulations like expanding $\sin (3a+2b)$. Other times, useful geometric obsevartions like similar triangles and cyclic quadrilaterals may help in making our trigo work clean.
+
+"So what should I do?"
+
+Practice! Read! Understand the motivation behind every single solution!
+
+\vspace{5mm} \noindent \copyright \,\, 2016 IMO Malaysia Committee
+\end{document}

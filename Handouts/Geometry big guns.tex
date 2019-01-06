@@ -1,0 +1,571 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amssymb, fullpage, mathrsfs, pgf, tikz}
+
+\begin{document}
+
+\title{IMO 2016 Training Camp 3}
+\author{Big guns in geometry}
+\date{5 March 2016}
+\maketitle
+
+At this stage you should be familiar with ideas and tricks like angle chasing, similar triangles and cyclic quadrilaterals (with possibly some ratio hacks). But at the IMO level there is no guarantee that these techniques are sufficient to solve contest geometry problems. It is therefore timely to learn more identities and tricks to aid our missions.
+
+\section {Harmonics.}
+Ever thought of the complete quadrilateral below?
+
+\usetikzlibrary{arrows}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.7563636363636355,-4.094545454545453) rectangle (17.152727272727272,6.032727272727274);
+\draw (9.,5.18)-- (2.934545454545455,-2.0945454545454534);
+\draw (9.,5.18)-- (11.916363636363638,-1.84);
+\draw (-2.9137806130177943,-2.2602874888488644)-- (11.916363636363638,-1.84);
+\draw (10.15921867177757,2.389636351787286)-- (-2.9137806130177943,-2.2602874888488644);
+\draw (10.15921867177757,2.389636351787286)-- (2.934545454545455,-2.0945454545454534);
+\draw (5.203781353764225,0.6270411260223817)-- (11.916363636363638,-1.84);
+\draw (9.,5.18)-- (5.474801121513093,-2.022554403254873);
+\draw (9.,5.18)-- (-2.9137806130177943,-2.2602874888488644);
+\begin{scriptsize}
+\draw [fill=qqqqff] (9.,5.18) circle (2.5pt);
+\draw[color=qqqqff] (9.134545454545455,5.505454545454547) node {$P$};
+\draw [fill=qqqqff] (2.934545454545455,-2.0945454545454534) circle (2.5pt);
+\draw[color=qqqqff] (3.0618181818181824,-1.767272727272726) node {$A$};
+\draw [fill=qqqqff] (11.916363636363638,-1.84) circle (2.5pt);
+\draw[color=qqqqff] (12.043636363636365,-1.5127272727272714) node {$B$};
+\draw [fill=xdxdff] (5.474801121513093,-2.022554403254873) circle (2.5pt);
+\draw[color=xdxdff] (5.607272727272727,-1.6945454545454532) node {$D$};
+\draw [fill=xdxdff] (10.15921867177757,2.389636351787286) circle (2.5pt);
+\draw[color=xdxdff] (10.28,2.723636363636365) node {$E$};
+\draw [fill=uuuuuu] (6.532586109532977,0.1386722922527695) circle (1.5pt);
+\draw[color=uuuuuu] (6.661818181818182,0.3963636363636376) node {$Q$};
+\draw [fill=uuuuuu] (5.203781353764225,0.6270411260223817) circle (1.5pt);
+\draw[color=uuuuuu] (5.334545454545455,0.8872727272727285) node {$F$};
+\draw [fill=uuuuuu] (-2.9137806130177943,-2.2602874888488644) circle (1.5pt);
+\draw[color=uuuuuu] (-2.792727272727272,-2.003636363636362) node {$C$};
+\end{scriptsize}
+\end{tikzpicture}
+
+By Ceva's theorem we have $\dfrac{EB}{EP}\cdot\dfrac{FP}{FA}\cdot\dfrac{AD}{DB}=1$ and by Menelaus' theorem, $\dfrac{EB}{EP}\cdot\dfrac{FP}{FA}\cdot\dfrac{AC}{CB}=-1$ (note: the negative ratio simply denotes that $C$ is not on segment $AB$.) We therefore have:
+$$\dfrac{AD}{DB}:\dfrac{AC}{CB}=-1. (*)$$
+
+We call any family of four \emph{collinear} points $(A,B;C,D)$ satisfying (*) a \textbf{harmonic bundle}.
+
+A pencil $P(A,B,C,D)$ is the collection of lines $PA, PB, PC, PD$. We name it a \textbf{harmonic pencil} if $(A,B;C,D)$ is harmonic (so the line $P(A,B,C,D)$ above is indeed a harmonic pencil). As $\dfrac{AD}{DB}=\dfrac{PA}{PB}\cdot \dfrac{\sin\angle APD}{\sin\angle BPD}$ and $\dfrac{AC}{CB}=\dfrac{PA}{PB}\cdot \dfrac{\sin\angle APC}{\sin BPC}$ we know that $|\dfrac{AD}{DB}:\dfrac{AC}{CB}|=\dfrac{\sin\angle APD}{\sin\angle BPD}:\dfrac{\sin\angle APC}{\sin\angle BPC}$ we know that $\dfrac{\sin\angle APD}{\sin\angle BPD}=\dfrac{\sin\angle APC}{\sin\angle BPC}$ iff $P(A,B,C,D)$ is harmonic pencil (assumming that $PC$ and $PD$ are different lines, of course).
+
+These imply that for a harmonic bundle $(A,B;C,D)$ and a point $P$ not on the line connecting $A,B,C,D$, if a line $\ell$ intersects $PA, PB, PC, PD$ at $A', B', C', D'$, then $(A',B';C',D')$ is harmonic.
+
+Let's turn back to the diagram above. We can see that if $PD, BF, AE$ are concurrent at $Q$ and $A,F,E$ are collinear then $(A,B;C,D)$ is harmonic. We can generalize above to the following:
+\\Let triangle $PAB$ with points $D, E, F$ on sides $AB, BP, PA$. Let $C$ be a point on line $AB$. Then any two of the three below imply the third:
+\begin{enumerate}
+\item $(A, B; C,D)$ is harmonic.
+\item $PD, BF, AE$ are concurrent.
+\item $C,F,E$ are collinear.
+\end{enumerate}
+Notice that if $EF$ is parallel to $AB$ then $C$ is actually 'point of infinity', so $\frac{CA}{CB}\rightarrow -1$. $D$ is therefore the midpoint of $AB$ if $(A,B;C,D)$ is harmonic.
+
+\emph {Two other lemmas.} \\$\bullet$ If $C,A,D,B$ are collinear in that order and $M$ is th midpoint of $AB$, then $(A,B;C,D)$ is harmonic $\Leftrightarrow$ $CA\cdot CB=CD\cdot CM$ $\Leftrightarrow$ $MA^2=MC\cdot MD$.
+\\$\bullet$ Points $(C,A,B,D)$ lie on a line in this order. $P$ is a point not on on this line. Then any two of the following conditions imply the third:
+\begin{enumerate}
+\item $(A,B;C,D)$ is harmonic.
+\item $PD$ is the angle bisector of $\angle CPD$.
+\item $AP\perp PB.$
+\end{enumerate}
+
+\textbf {Harmonic quadrilateral.} A cyclic quadrilateral $ABCD$ is named harmonic quadrilateral if $\dfrac{AB}{BC}=\dfrac{AD}{DC}$. Some facts about this quadrilateral:
+\begin {enumerate}
+\item Let $\omega$ be the circle circumsribing $ABCD$. Then point of intersection of tangents to $\omega$ at $A$ and $C$ lie on $BD$. Likewise, the point of intersection of tangents to $\omega$ at $B$ and $D$ lie on $AC$.
+\item Let $P$ be any point on $\omega$. Then $1=\dfrac{AB}{BC}:\dfrac{AD}{DC}=\dfrac{\sin APB}{\sin BPC}:\dfrac{\sin APD}{\sin DPC}$. Therefore, $P(A,C;B,D)$ is harmonic.
+\item Let $Q$ be the common point of line $AC$, tangent to $\omega$ at $B$ and tangent to $\omega$ at $D$.Let $R=AC\cap BD.$ Then $(Q,R;A,C)$ is harmonic. 
+\end {enumerate}
+
+\section {Poles and polars.}
+Given a circle $\omega$ with center $O$ and radius $r$ and any point $A\neq O$. Let $A'$ be the point on ray $OA$ such that $OA\cdot OA' = r^2.$ The line $l$ through $A'$ perpendicular to $OA$ is called the
+polar of $A$ with respect to $\omega$. $A$ is called the pole of $l$ with respect to $\omega$. Notice that if $A$ lies outside $\omega$ and $C$ and $D$ are on $\omega$ such that $AC$ and $AD$ are tangent to $\omega$, then $CD\equiv l$, the polar of $A$.
+
+\textbf {La Hire's Theorem}: A point $X$ lies on the polar of a point $Y$ with respect to a circle $\omega$. Then $Y$ lies on the polar of $X$ with respect to $\omega$. From this identity, we know that if points $A$ and $B$ have polars $l_A$ and $l_B$, then the pole of line $AB$ is the point of intersection of $l_A$ and $l_B$.
+
+\textbf {Brokard's Theorem}: The points $A,B,C,D$ lie in this order on a circle $\omega$ with center $O$. $AC$ and $BD$ intersect at $P$, $AB$ and $DC$ intersect at $Q$, $AD$ and $BC$ intersect at $R$. Then $O$ is the orthocenter of $\triangle PQR$. Furthermore, $QR$ is the polar of $P$, $PQ$ is the polar of $R$, and $PR$ is the polar of $Q$ with respect to $\omega$.
+
+\section {Other heavy machineries.}
+$\bullet$ \textbf {Pascal's Theorem}: Given a hexagon $ABCDEF$ inscribed in a circle, let $P = AB\cap ED$, $Q=BC \cap EF$, $R = CD \cap AF$. Then $P, Q, R$ are collinear. (An easy way to remember - the three points of intersection of pairs of opposite sides are collinear).\\
+\textbf {Note:} Points $A,B,C,D,E, F$ do not have to lie on the circle in this order.\\
+textbf {Note:} It is sometimes useful to use degenerate versions of Pascal's Theorem. For example if $C\equiv D$ then line $CD$ becomes the tangent to the circle at $C$.
+
+$\bullet$ \textbf {Brianchon's Theorem:} Given a hexagon $ABCDEF$ circumscribed about a circle, the three diagonals joining pairs of opposite points are concurrent, i.e. $AD,BE,CF$ are concurrent.\\
+\textbf{Note:} It is sometimes useful to use degenerate versions of Brianchon's Theorem. For example if $ABCD$ is a quadrilateral circumscribed about a circle tangent to $BC, AD$ at $P,Q$ then $PQ,AC,BD$ are concurrent.
+
+$\bullet$ \textbf {Desargues' Theorem:} Given two triangles $A_1B_1C_1$ and $A_2B_2C_2$ we say that they are perspective with respect to a point when $A_1A_2, B_1B_2, C_1C_2$ are concurrent. We say that they are perspective with respect to a line when $A_1B_1 \cap A_2B_2$, $A_1C_1\cap A_2C_2$, $C_1B_1\cap C_2B_2$ are collinear. Then two triangles are perspective with respect to a point iff they are perspective with respect to a line. Proof? Use Menelaus' theorem for a few times.
+
+$\bullet$ \textbf {Sawayama-Thebault's Theorem:} A point $D$ is on side $BC$ of $\triangle ABC$. A circle $\omega_1$ with centre $O_1$ is tangent to $AD,BD$ and $\Gamma$, the circumcircle of $\triangle ABC$. A circle $\omega_2$ with centre $O_2$ is tangent to $AD,DC$ and $\Gamma$. Let $I$ be the incentre of $\triangle ABC$. Then $O_1, I, O_2$ are collinear.
+
+\section {Homothety: triangles and circles.}
+
+Refer to Desargues' theorem above: what happened if $A_1B_1 \parallel A_2B_2$, $A_1C_1\parallel A_2C_2$, $C_1B_1\parallel C_2B_2?$ The fact is, as long as the triangles are not congruent, the lines $A_1A_2, B_1B_2, C_1C_2$ are still concurrent. (If congruent and are of similar orientation then the three lines are parallel!) The point $P$ at which they concur is called the centre of homothety.\\
+\textbf {Definition.} Homothety under a center $P$ and ratio $k$ is the mapping of any point $A$ to $A'$ in a plane such that $A'P=k\cdot AP$, and $A, P, P'$ collinear. (Again, if $k<0$ then $A'$ and $A$ are at the different side of $P$).\\
+Fun fact 1: If $\triangle A'B'C'$ is the image of $\triangle ABC$ under some homothety, then all relevant points of $\triangle A'B'C'$ (e.g. centroid, orthocentre, and even circumcircle) is the image of of the corresponding point of $\triangle ABC$.\\
+Fun fact 2: Denote $\triangle A'B'C'$ and $\triangle ABC$ as above. Then if the centre of homothety lies on one relevant line (e.g. Euler's line, $A-$ altitude) of $\triangle A'B'C'$, then this corresponding relevant line of $\triangle ABC$ coincides with the former; otherwise, two such lines are parallel to each other.
+
+Consider two circles $\omega_1, \omega_2$ with centres $O_1,O_2$. There are two unique points $P,Q$, such that a homothety with centre $P$ and positive coeffcient carries $\omega_1$ to $\omega_2$, and a a homothety with centre $Q$ and negative coeffcient carries $\omega_1$ to $\omega_2$. $P$ is called the exsimilicentre, and $Q$ is called the insimilicentre of$\omega_1, \omega_2$.We assumed that the two circles are not concentric (otherwise the only centre of simlarity is the centre!) and not congruent (otherwise the exsimilicenter is the point of infinity).
+
+\usetikzlibrary{arrows}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{zzttqq}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.274423687595477,-5.140759441718948) rectangle (19.321102400425957,5.3189866722183865);
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (-0.19937531131167963,4.271134188990911) -- (-0.7,2.18) -- (3.48,2.38) -- cycle;
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (2.82,0.86) -- (2.5599198211153453,-0.22636782450649628) -- (4.731477022151998,-0.12246556608368997) -- cycle;
+\draw [color=zzttqq] (-0.19937531131167963,4.271134188990911)-- (-0.7,2.18);
+\draw [color=zzttqq] (-0.7,2.18)-- (3.48,2.38);
+\draw [color=zzttqq] (3.48,2.38)-- (-0.19937531131167963,4.271134188990911);
+\draw [color=zzttqq] (2.82,0.86)-- (2.5599198211153453,-0.22636782450649628);
+\draw [color=zzttqq] (2.5599198211153453,-0.22636782450649628)-- (4.731477022151998,-0.12246556608368997);
+\draw [color=zzttqq] (4.731477022151998,-0.12246556608368997)-- (2.82,0.86);
+\draw(1.365550581732539,2.790992841789934) circle (2.1540221582922885cm);
+\draw(3.632996672758106,0.09104985620421642) circle (1.1190388346966818cm);
+\draw(0.35834721272247017,3.0567227643579447) circle (0.8251401747276215cm);
+\draw(3.10974314910208,0.22909955163088552) circle (0.4286696383479449cm);
+\draw [dash pattern=on 5pt off 5pt] (-0.7,2.18)-- (6.08459195317657,-2.8281672784651324);
+\draw [dash pattern=on 5pt off 5pt] (3.48,2.38)-- (6.08459195317657,-2.8281672784651324);
+\draw [dash pattern=on 5pt off 5pt] (-0.19937531131167963,4.271134188990911)-- (6.08459195317657,-2.8281672784651324);
+\draw (-1.598389827448719,-2.9999855512542153) node[anchor=north west] {Figure showing how triangles, relevant points and circles can be homothetic.};
+\begin{scriptsize}
+\draw [fill=qqqqff] (-0.19937531131167963,4.271134188990911) circle (2.5pt);
+\draw[color=qqqqff] (-0.07731364211851385,4.605395375396809) node {$A$};
+\draw [fill=qqqqff] (-0.7,2.18) circle (2.5pt);
+\draw[color=qqqqff] (-0.5655603188911723,2.520957639944306) node {$B$};
+\draw [fill=qqqqff] (3.48,2.38) circle (2.5pt);
+\draw[color=qqqqff] (3.6033151520138342,2.7087448233184057) node {$C$};
+\draw [fill=qqqqff] (2.82,0.86) circle (2.5pt);
+\draw[color=qqqqff] (3.0023961652167164,1.2064473563256104) node {$A'$};
+\draw [fill=xdxdff] (2.5599198211153453,-0.22636782450649628) circle (2.5pt);
+\draw[color=xdxdff] (2.7394941084929774,0.11728169275583417) node {$B'$};
+\draw [fill=zzttqq] (4.731477022151998,-0.12246556608368997) circle (1.5pt);
+\draw[color=zzttqq] (4.91782543563253,0.1360604110932441) node {$C'$};
+\draw [fill=zzttqq] (6.08459195317657,-2.8281672784651324) circle (1.5pt);
+\draw[color=zzttqq] (6.213557000913816,-2.5680750294937864) node {$P$};
+\draw [fill=zzttqq] (-0.15047647477675777,3.249148505411043) circle (1.5pt);
+\draw[color=zzttqq] (-0.020977487106284033,3.516229711827033) node {$H$};
+\draw [fill=zzttqq] (2.8454034977511298,0.32906689700138025) circle (1.5pt);
+\draw[color=zzttqq] (2.8897238551922566,0.2675114394551137) node {$H'$};
+\draw [fill=zzttqq] (3.632996672758106,0.09104985620421642) circle (1.5pt);
+\draw[color=zzttqq] (3.791102335387934,0.2862901577925236) node {$O'$};
+\draw [fill=zzttqq] (1.365550581732539,2.790992841789934) circle (1.5pt);
+\draw[color=zzttqq] (1.5000986982239213,3.0467617533917846) node {$O$};
+\draw [fill=zzttqq] (0.35834721272247017,3.0567227643579447) circle (1.5pt);
+\draw[color=zzttqq] (0.48604790800378433,3.3284425284529333) node {$I$};
+\draw [fill=zzttqq] (3.10974314910208,0.22909955163088552) circle (1.5pt);
+\draw[color=zzttqq] (3.3028556586152753,0.4928560595040329) node {$I'$};
+\end{scriptsize}
+\end{tikzpicture}
+
+ Some useful facts:
+\begin {enumerate}
+\item $P$ is the intersection of external tangents to $\omega_1, \omega_2$. $Q$ is the intersection of internal tangents to $\omega_1, \omega_2$.
+\item Let $\omega_1$ to $\omega_2$ intersect at $S;,R,$ and $PA_1, PA_2$ are tangents to$\omega_1$ to $\omega_2$ so that $A_1,A_2$ are on the same side of $O_1O_2$ as $S$. Then $PR$ is tangent to $\triangle A_1RA_2.$
+\item $(P, Q; O_1, O_2)$ is harmonic. (Why?)
+\item \textbf {Monge's Theorem:} Given three circles $\omega_1, \omega_2, \omega_3$. Then the exsimilicentres of $\omega_1, \omega_2$, of $\omega_1, \omega_3$, and of $\omega_2, \omega_3$ are collinear.\\
+Proof: Let $O_1,O_2,O_3$ be the centres of the circles. Let $K_1$ be the intersection of the common tangents of $\omega_1, \omega_2$ and $\omega_1, \omega_3$. Define $K_2,K_3$ similarly. Then $K_iA_i$ is the angle bisector of $\angle K_i$ in $\triangle K_1K_2K_3$. Hence $K_1A_1,K_2A_2,K_3A_3$ are concurrent. The result follows by Desargues' theorem.\\
+A proof without using Deargues' theorem: use Menelaus' theorem to the triangle formed by the centres of the three circles.
+\item\textbf {Monge-d' Alembert's theorem:} Given three circles $\omega_1, \omega_2, \omega_3$. Then the insimilicentres of $\omega_1, \omega_2$, of $\omega_1, \omega_3$, and the exsimilicentre of $\omega_2, \omega_3$ are collinear.
+\item If the exsimilicentre of two circles $\omega_1$ and $\omega_2$ lies on the circumference of $\omega_1$ then $\omega_1$ is internally tangent to $\omega_2$, and the exsimicenter is the point of tangency of the circles.
+\item If the insimilicentre of two circles $\omega_1$ and $\omega_2$ lies on the circumference of $\omega_1$ then $\omega_1$ is externally tangent to $\omega_2$, and the insimicenter is the point of tangency of the circles.
+
+\end {enumerate}
+
+\section {Examples.}
+\begin{enumerate}
+\item\emph {IMO 2012, \#5.} Let $ABC$ be a triangle with $\angle BCA=90^{\circ}$, and let $D$ be the foot of the altitude from $C$. Let $X$ be a point in the interior of the segment $CD$. Let $K$ be the point on the segment $AX$ such that $BK=BC$. Similarly, let $L$ be the point on the segment $BX$ such that $AL=AC$. Let $M$ be the point of intersection of $AL$ and $BK$.
+
+Show that $MK=ML$.\\
+\textbf{Solution.}
+
+ Denote $\omega_A$ as the circle with centre $A$ and radius $AC$, and $\omega_B$ as the circle with centre $B$ and radius $BC$. Now considering $\omega_A$ and letting the pole of $BX$ be $R$, we know that the pole of $CD$ is $B$, so by La Hire's theorem $R$ lies on $CD$. By La Hire's theorem the polar of $X$ contains both $B$ (as $X\in CD$) and $R$ (polar of $R$ is $BX$) and by definition this polar is perpendiular to $AX$. We therefore have $RX\perp AB$ and $RB\perp AX$, so $R$ is the orthocentre of triangle $ABX$, and $RL$ is tangent to $BX$ (by definition again).
+
+By similar reasoning, $R$ is the pole of $AX$ with respect to $\omega_B$, and therefore $RK$ is tangent to $\omega_B$. Now that $R$ is on $CD$, the radical axis of $\omega_A$ and $\omega_B$. Thus the lengths of tangent (i.e. the square root of power of point from $R$ to the two circles) are equal, hence $RK=RL$. Now $MK^2=RM^2-RK^2=RM^2-RL^2=ML^2$, or $MK=ML$.
+
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.771955467522708,-2.411747831432274) rectangle (13.508284953213568,5.957899050611296);
+\draw(-1.713352913052386,-0.6686974933406148) circle (2.7490103844648295cm);
+\draw(4.222034014070075,-0.6386449013045518) circle (5.260481255460267cm);
+\draw (-0.46677817575363817,4.593899964528632)-- (-1.713352913052386,-0.6686974933406148);
+\draw (-0.46677817575363817,4.593899964528632)-- (4.222034014070075,-0.6386449013045518);
+\draw (-1.713352913052386,-0.6686974933406148)-- (4.222034014070075,-0.6386449013045518);
+\draw (0.9123693335574241,0.14533001083464486)-- (-1.713352913052386,-0.6686974933406148);
+\draw (-0.46677817575363817,4.593899964528632)-- (0.9123693335574241,0.14533001083464486);
+\draw (-0.46677817575363817,4.593899964528632)-- (-1.0034120684301675,-0.0325291714874667);
+\draw (-0.46677817575363817,4.593899964528632)-- (-0.44016475329520094,-0.6622509710127301);
+\draw (4.190586667862305,4.621742356632387)-- (-1.713352913052386,-0.6686974933406148);
+\draw (-3.6949180143911793,1.2366785438372567)-- (4.222034014070075,-0.6386449013045518);
+\draw (-1.0034120684301675,-0.0325291714874667)-- (4.222034014070075,-0.6386449013045518);
+\draw [dash pattern=on 4pt off 4pt] (-0.46677817575363817,4.593899964528632)-- (-3.6949180143911793,1.2366785438372567);
+\draw [dash pattern=on 4pt off 4pt] (-0.46677817575363817,4.593899964528632)-- (4.190586667862305,4.621742356632387);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-1.713352913052386,-0.6686974933406148) circle (2.5pt);
+\draw[color=qqqqff] (-1.608168840926165,-0.39822416501604707) node {$A$};
+\draw [fill=qqqqff] (4.222034014070075,-0.6386449013045518) circle (2.5pt);
+\draw[color=qqqqff] (4.327218086196296,-0.368171572979984) node {$B$};
+\draw [fill=xdxdff] (-0.4525007597578845,1.7741103053672753) circle (2.5pt);
+\draw[color=xdxdff] (-0.3459599754115151,2.0510620859230944) node {$C$};
+\draw [fill=uuuuuu] (-0.44016475329520094,-0.6622509710127301) circle (1.5pt);
+\draw[color=uuuuuu] (-0.3309336793934835,-0.45832934908817324) node {$D$};
+\draw [fill=xdxdff] (-0.44588280987680107,0.46706520385328765) circle (2.5pt);
+\draw[color=xdxdff] (-0.3459599754115151,0.7437743323543502) node {$X$};
+\draw [fill=uuuuuu] (-1.0034120684301675,-0.0325291714874667) circle (1.5pt);
+\draw[color=uuuuuu] (-0.9019329280786823,0.1727750836691516) node {$K$};
+\draw [fill=uuuuuu] (0.9123693335574241,0.14533001083464486) circle (1.5pt);
+\draw[color=uuuuuu] (1.0214329622293556,0.35309063588553014) node {$L$};
+\draw [fill=uuuuuu] (-0.46677817575363817,4.593899964528632) circle (1.5pt);
+\draw[color=uuuuuu] (-0.3609862714295466,4.800874257222866) node {$R$};
+\draw [fill=uuuuuu] (-0.02674784964881745,-0.14581548932650717) circle (1.5pt);
+\draw[color=uuuuuu] (0.07477631309336823,0.06759101154293079) node {$M$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\item \emph {IMO 2004, G8.} Given a cyclic quadrilateral $ABCD$, let $M$ be the midpoint of the side $CD$, and let $N$ be a point on the circumcircle of triangle $ABM$. Assume that the point $N$ is different from the point $M$ and satisfies $\frac{AN}{BN}=\frac{AM}{BM}$. Prove that the points $E$, $F$, $N$ are collinear, where $E=AC\cap BD$ and $F=BC\cap DA$.\\
+\textbf {Solution.} Let $P$ be the second point of intersection between $CD$ and the circle $(ABM)$, and let $G=AB\cap CD$. A very simple computation, based on the fact that $GD\cdot GC=GA\cdot GB=GM\cdot GP$ and $M$ is the midpoint of $CD$ will show that $P$ is, in fact, the harmonic conjugate of $C,D$ art $G$, so it belongs to $EF$.
+
+$ANBM$ is a harmonic quadrilateral, so $(PA,PB;PN,PM)$, or $P(A,B;N,G)$ is harmonic pencil. Now let $EF\cap AB=H$, we have $(G,H;A,B)$ harmonic, so $P(G,H;A,B)$, or $P(G,E;A,B)$ is a harmonic pencil too. This means lines $PH$ and $PN$ coincide, and we are done. $\blacksquare$
+\item\emph {JOM 2013, G7.} Given a triangle $ABC$, let $l$ be the median corresponding to the vertex $A$.  Let $E,F$ be the feet of the perpendiculars from $B,C$ to $AC,AB$.  Reflect the points $E,F$ across $l$ to the points $P,Q$.  Let $AP, AQ$ intersect $BC$ at $X,Y$.  Let $\Gamma_1, \Gamma_ 2$ be the circumcircles of $\triangle EQY,\triangle FPX.$
+
+Prove that $A$ lies on the line connecting the centers of $\Gamma_1, \Gamma_2$.\\
+\textbf {Solution.} Here $a\cap b$ refers  to  the  intersection  between  objects $a$ and $b$. Let $\Gamma_1\cap BC=U,Y,$ $\Gamma_1\cap PQ=V,Q$. Let $\Gamma_2\cap BC=H,X,$ $\Gamma_2\cap PQ=I,P$. Let $O_1, O_2$ be the centers of the circles $\Gamma_1, \Gamma_2$. Let $D$ be the midpoint of $BC$. Let $PQ\cap BC$=$G$.
+
+\usetikzlibrary{arrows}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.8859573221329928,-3.2097794391695476) rectangle (13.591962436892434,4.286917348462774);
+\draw(5.0416045093234825,0.8672831270741245) circle (0.8227450062176271cm);
+\draw (5.220431976347706,3.5829427116069614)-- (0.10308603910262636,1.1861138496337922);
+\draw (-1.4138120833517753,1.5416368470840422)-- (7.656934304372996,1.7478986505697323);
+\draw (5.220431976347706,3.5829427116069614)-- (12.152586822838527,-1.6379878965543084);
+\draw (-1.4138120833517753,1.5416368470840422)-- (12.152586822838527,-1.6379878965543084);
+\draw (5.220431976347706,3.5829427116069614)-- (4.953728472356839,0.04924452933983652);
+\draw (5.220431976347706,3.5829427116069614)-- (4.75684034164194,0.09539018497614116);
+\draw (5.220431976347706,3.5829427116069614)-- (6.4129565163734,-0.29276204347654466);
+\draw [shift={(4.517043939385745,-7.0986516542222065)}] plot[domain=0.6208306704981554:2.0603228085379506,variable=\t]({1.*9.387244739504457*cos(\t r)+0.*9.387244739504457*sin(\t r)},{0.*9.387244739504457*cos(\t r)+1.*9.387244739504457*sin(\t r)});
+\draw [shift={(6.4129565163734,-0.29276204347654466)}] plot[domain=-0.230219587276844:2.9113730663129496,variable=\t]({1.*2.3899323850815963*cos(\t r)+0.*2.3899323850815963*sin(\t r)},{0.*2.3899323850815963*cos(\t r)+1.*2.3899323850815963*sin(\t r)});
+\draw [dash pattern=on 3pt off 3pt] (-1.4138120833517753,1.5416368470840422)-- (4.963322542821448,1.1216995182061718);
+\draw (5.220431976347706,3.5829427116069614)-- (4.086079365103752,0.2525997888522789);
+\draw (5.220431976347706,3.5829427116069614)-- (8.73983366764305,-0.8381238758053683);
+\begin{scriptsize}
+\draw [fill=qqqqff] (5.220431976347706,3.5829427116069614) circle (2.5pt);
+\draw[color=qqqqff] (5.314640130978836,3.829309286022022) node {$A$};
+\draw [fill=qqqqff] (4.086079365103752,0.2525997888522789) circle (2.5pt);
+\draw[color=qqqqff] (4.184079035536978,0.4914622423365358) node {$B$};
+\draw [fill=qqqqff] (8.73983366764305,-0.8381238758053683) circle (2.5pt);
+\draw[color=qqqqff] (8.827454963244605,-0.5987216711252561) node {$C$};
+\draw [fill=uuuuuu] (6.4129565163734,-0.29276204347654466) circle (1.5pt);
+\draw[color=uuuuuu] (6.512496529720803,-0.10073642670443758) node {$D$};
+\draw [fill=uuuuuu] (6.4032008319333835,2.097150430210078) circle (1.5pt);
+\draw[color=uuuuuu] (6.499037469060781,2.281517310119478) node {$E$};
+\draw [fill=uuuuuu] (4.236971036672044,0.6956022605079011) circle (1.5pt);
+\draw[color=uuuuuu] (4.116783732236867,0.7606434555369783) node {$F$};
+\draw [fill=uuuuuu] (5.077506367486447,1.6892444411494816) circle (1.5pt);
+\draw[color=uuuuuu] (4.910868311178172,1.8104501870187037) node {$P$};
+\draw [fill=uuuuuu] (7.656934304372996,1.7478986505697323) circle (1.5pt);
+\draw[color=uuuuuu] (7.750730110442837,1.931581732958903) node {$Q$};
+\draw [fill=uuuuuu] (4.953728472356839,0.04924452933983652) circle (1.5pt);
+\draw[color=uuuuuu] (5.045458917778393,0.23574008979611547) node {$X$};
+\draw [fill=uuuuuu] (12.152586822838527,-1.6379878965543084) circle (1.5pt);
+\draw[color=uuuuuu] (12.246056370890223,-1.44664249270665) node {$Y$};
+\draw [fill=uuuuuu] (0.10308603910262636,1.1861138496337922) circle (1.5pt);
+\draw[color=uuuuuu] (0.20019708017043425,1.3797602458979958) node {$U$};
+\draw [fill=uuuuuu] (0.9782794105927772,1.5960311697289227) circle (1.5pt);
+\draw[color=uuuuuu] (1.0750360230718714,1.7835320656986595) node {$V$};
+\draw [fill=uuuuuu] (4.75684034164194,0.09539018497614116) circle (1.5pt);
+\draw[color=uuuuuu] (4.857032068538084,0.28957633243620395) node {$H$};
+\draw [fill=uuuuuu] (4.968377541211731,1.686762935487482) circle (1.5pt);
+\draw[color=uuuuuu] (5.193508585038637,1.9046636116388587) node {$I$};
+\draw [fill=uuuuuu] (-1.4138120833517753,1.5416368470840422) circle (1.5pt);
+\draw[color=uuuuuu] (-1.3206767744120642,1.729695823058571) node {$G$};
+\draw [fill=uuuuuu] (1.9261672364095968,1.321697630450244) circle (1.5pt);
+\draw[color=uuuuuu] (2.0171702692734192,1.514350852498217) node {$R$};
+\draw [fill=uuuuuu] (4.963322542821448,1.1216995182061718) circle (1.5pt);
+\draw[color=uuuuuu] (5.058917978438415,1.3124649425978852) node {$S$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Firstly,  notice  that $EP\perp AD$ and $AE\perp BE$, thus $\angle EAD= 90^{\circ}-\angle AEP=\angle PEB=\angle AFP=\angle AQE=\angle EUY=\angle EUD$, from which it follows that $A,E,D,U$ are concyclic.  It follows immediately that $$\angle AUY=\angle AUD=\angle DEC=\angle DCE=\angle AFE=\angle AQP=\angle VUY$$ which  proves  that $A,U,V$ are collinear. Now note that  if $UQ\cap VY=R$,  then since the complete quadrilateral formed by $U,V,Q,Y,G,A$ has $V,U,Q,Y$ concyclic on $\Gamma_1$, then by Brokard's Theorem, $GR$ is the polar of $A$ with respect to $\Gamma_1$. Analogously,  if $IX\cap PH=S$, then $GS$ is the polar of $A$ with respect to $\Gamma_2$. But since $(GA,GP;GS,GX)$ and $(GA,GQ;GR,GY)$ are both harmonic pencils, $G,R,S$ are collinear.
+
+Since by definition $AO_1\perp GR$, $AO_2\perp GS$, it follows immediately that $AO_1O_2$ must be collinear, and we're done. $\blacksquare$
+
+\item\emph {APMO 2013, \#5.} Let $ABCD$ be a quadrilateral inscribed in a circle $\omega$, and let $P$ be a point on the extension of $AC$ such that $PB$ and $PD$ are tangent to $\omega$. The tangent at $C$ intersects $PD$ at $Q$ and the line $AD$ at $R$. Let $E$ be the second point of intersection between $AQ$ and $\omega$. Prove that $B$, $E$, $R$ are collinear.\\
+\textbf {Solution.} The problem is equivalent to proving $BE, AD, CQ$ are collinear. If we denote $X=DE\cap AB$, $Y=AE\cap BD$ then by Brokard's theorem $Y$ is the polar of the point $BE\cap AD$ so the problem statement of proving that $CQ$ contains this point is equivalent of proving that $XY$ contains the pole of $CQ$, which is $C$ (all pole and polar relations are w.r.t.  $\omega$.)
+
+\usetikzlibrary{arrows}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.0917949004747793,-2.32872251855273) rectangle (11.019019745180056,4.505819879386167);
+\draw(0.08922739944245306,1.960442054958184) circle (2.0772341582302922cm);
+\draw (-0.6,3.92)-- (-2.4986348912540493,-1.9248172142526605);
+\draw (-0.21154668567355672,-1.2593775243525773)-- (-0.6,3.92);
+\draw (-1.62,0.78)-- (-0.21154668567355672,-1.2593775243525773);
+\draw (1.5502529510961212,0.4838560989319844)-- (-0.21154668567355672,-1.2593775243525773);
+\draw (-0.3,-0.08)-- (0.7734443746071653,-0.28476639430127754);
+\draw (-0.6,3.92)-- (0.7734443746071653,-0.28476639430127754);
+\draw (-1.62,0.78)-- (1.5502529510961212,0.4838560989319844);
+\draw [dash pattern=on 3pt off 3pt] (-2.4986348912540493,-1.9248172142526605)-- (0.4900315929497838,0.582894911872298);
+\draw (-2.4986348912540493,-1.9248172142526605)-- (1.5502529510961212,0.4838560989319844);
+\begin{scriptsize}
+\draw [fill=qqqqff] (-0.6,3.92) circle (2.5pt);
+\draw[color=qqqqff] (-0.5150374434421572,4.137711671238651) node {$A$};
+\draw [fill=qqqqff] (-1.62,0.78) circle (2.5pt);
+\draw[color=qqqqff] (-1.5334701526502887,0.9965216283798393) node {$B$};
+\draw [fill=qqqqff] (-0.3,-0.08) circle (2.5pt);
+\draw[color=qqqqff] (-0.208280603319226,0.1376024760356333) node {$C$};
+\draw [fill=uuuuuu] (-0.21154668567355672,-1.2593775243525773) circle (1.5pt);
+\draw[color=uuuuuu] (-0.12238868808480528,-1.0894248844560896) node {$P$};
+\draw [fill=uuuuuu] (1.5502529510961212,0.4838560989319844) circle (1.5pt);
+\draw[color=uuuuuu] (1.6322604374183611,0.652953967442157) node {$D$};
+\draw [fill=uuuuuu] (0.7734443746071653,-0.28476639430127754) circle (1.5pt);
+\draw[color=uuuuuu] (0.8592332003085745,-0.2918571001364697) node {$Q$};
+\draw [fill=uuuuuu] (0.6896178625879112,-0.02813357596026135) circle (1.5pt);
+\draw[color=uuuuuu] (0.7733412850741538,0.1376024760356333) node {$E$};
+\draw [fill=uuuuuu] (-2.4986348912540493,-1.9248172142526605) circle (1.5pt);
+\draw[color=uuuuuu] (-2.4169298522043308,-1.75201965912162) node {$X$};
+\draw [fill=uuuuuu] (0.4900315929497838,0.582894911872298) circle (1.5pt);
+\draw[color=uuuuuu] (0.5770169073954778,0.7511161562814948) node {$Y$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Recall from the trigonometry notes that (don't do this is contests--the trigonometric identity isn't well known!) it suffices to prove that $\dfrac{\sin\angle AXY}{\sin\angle DXY}=\dfrac{\sin\angle AXC}{\sin\angle DXC}$. Now from $\angle XAY=\angle XDY$ we have $\dfrac{\sin\angle AXY}{\sin\angle DXY}=\dfrac{AY\cdot\sin\angle XAY}{DY\sin\angle XDY}=\dfrac{\sin\angle ADY}{\sin\angle DAY}=\dfrac{AB}{DE}.$ $\dfrac{\sin\angle AXC}{\sin\angle DXC}=\dfrac{AC\cdot \sin\angle XAC}{CD\cdot\sin\angle XDC}=\dfrac{AC\cdot BC}{CD\cdot CE}$. Therefore it is clear that we what we need is $AC\cdot BC\cdot DE=CD\cdot CE\cdot AB$. Now since $ABCD$ and $ACED$ are harmonic quadilaterals, $CD\cdot AB$=$BC\cdot AD$ and $AC\cdot ED$=$AD\cdot EC$. Therefore $AC\cdot BC\cdot DE$=$AD\cdot BC\cdot EC$=$AB\cdot CD\cdot EC$. $\blacksquare$
+
+\item\emph {IMO 2007, G8.} Point $ P$ lies on side $ AB$ of a convex quadrilateral $ ABCD$. Let $ \omega$ be the incircle of triangle $ CPD$, and let $ I$ be its incenter. Suppose that $ \omega$ is tangent to the incircles of triangles $ APD$ and $ BPC$ at points $ K$ and $ L$, respectively. Let lines $ AC$ and $ BD$ meet at $ E$, and let lines $ AK$ and $ BL$ meet at $ F$. Prove that points $ E$, $ I$, and $ F$ are collinear.\\
+\textbf {Solution.} Let $J$ be the centre of the circle $\Gamma$ tangent to sides $AB, BC, AD$ (or the intersection of internal angle bisectors of $\angle BAD$ and $\angle ABC$). Then we prove that $E$ and $F$ are the exsimilicentres and insimilicentre of $\omega$ and $\Gamma$, so they have to lie on line $IJ$!
+
+Denote incircles of $APD$ and $BPC$ as $\omega_1$ and $\omega_2$, respectively. As incircles of triangles $APD$ and $CPD$ are tangent to each other, there exists a circle tangent to sides $AP, PC, CD, DA$ (the reverse of this identity holds true, and is well known. However, as an exercise try to prove it!) Name the circle $\Gamma_1$. Similarly there is a circle $\Gamma_2$ inscribed in quadrilateral $PBCD$.
+
+Now, $A$ is the exsimilicentre of $\Gamma_1$ and $\Gamma$; $C$ is the exsimilicentre of $\Gamma_1$ and $\omega$. Then by Monge's theorem the exsimilicentre of $\omega$ and $\Gamma$ lies on $AC$. Similarly this exsimilicentre lies on $BD$ (by considering exsimilicentres of $\omega$, $\Gamma$ and $\Gamma_2$). The exsimilicentre must then be $AC\cap BD=E$). Next, $A$ is the exsimilicentre of $\omega_1$ and $\Gamma$, $K$ is the insimilicentre of $\omega_1$ and $\omega$. By Monge d'Almebert's theorem the insimilicentre of $\omega$ and $\Gamma$ lies on $AK$. Similarly this insimilicentre lies on $BL$. Therefore, $AK\cap BL$ is the insimillicentre of $\omega$ and $\Gamma$. $\blacksquare$
+
+\item \emph {IMO 2008, \#6.} Let $ABCD$ be a convex quadrilateral with $ BA\neq BC$. Denote the incircles of triangles $ ABC$ and $ ADC$ by $ \omega_{1}$ and $ \omega_{2}$ respectively. Suppose that there exists a circle $ \omega$ tangent to ray $ BA$ beyond $ A$ and to the ray $ BC$ beyond $ C$, which is also tangent to the lines $ AD$ and $ CD$. Prove that the common external tangents to $ \omega_{1}$ and $\omega_{2}$ intersect on $\omega$.\\
+\textbf {Solution.} Throughout the problem the pole-polar relation is with respect to $\omega$. Denote $G=AC\cap BD$. Also denote the point of tangency of lines $AB, CD, AD, BC$ as $U,V,W,X$ respectively. We prove that $G$ is th intersection of $UV$ and $WX$. Indeed, the polar of $A$ is $UW$ and the polar of $C$ is $VX$, so the pole of $AC$ is $UW\cap VX$, namely $P$. In a similar way we deduce that the pole of $BD$ is $UX\cap VW=Q$. So the polar of $G=AC\cap BD$ is $PQ$. By Brokard's theorem we know that the $UV$ and $WX$ intersect at the polar of $PQ$, which is $G$. (note the profuse usage of La Hire's theorem!) Also that pole of $AC$ (i.e. $P$) lies on the pole of $Q$ (i.e. $PG$), we know that $Q$ lies on $AC$ (La Hire's theorem again).
+
+\usetikzlibrary{arrows}
+\definecolor{qqwuqq}{rgb}{0.12941176470588237,0.12941176470588237,0.12941176470588237}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.2583527065870608,-4.204878139358186) rectangle (20.623836815964733,6.878060611999518);
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (2.212047191558554,2.618713608648513) -- (2.6265073823915874,2.538816908022434) -- (2.7064040830176666,2.9532770988554673) -- (2.291943892184633,3.0331737994815464) -- cycle; 
+\draw(1.58,-0.66) circle (2.6503584663211126cm);
+\draw (1.28130331367771,6.473702595675313)-- (-0.92,0.22);
+\draw (1.28130331367771,6.473702595675313)-- (3.9976850160163657,0.42590937160057096);
+\draw (3.0482797141449245,1.5464801565005062)-- (-0.92,0.22);
+\draw (0.41910088177697413,1.7225854102862712)-- (3.9976850160163657,0.42590937160057096);
+\draw [dash pattern=on 5pt off 5pt] (1.6904332451371729,3.1491287624755926)-- (-0.92,0.22);
+\draw [dash pattern=on 5pt off 5pt] (1.6904332451371729,3.1491287624755926)-- (3.9976850160163657,0.42590937160057096);
+\draw (2.8773090913572834,2.9203312415962617)-- (-0.5588113634516806,1.24610408110318);
+\draw (0.21141376953056765,3.4342436634391116)-- (3.6845482787166057,1.1230817301170175);
+\draw (0.21141376953056765,3.4342436634391116)-- (13.707895309074665,0.832487526370778);
+\draw (0.41910088177697413,1.7225854102862712)-- (13.707895309074665,0.832487526370778);
+\draw (-0.92,0.22)-- (13.707895309074665,0.832487526370778);
+\draw(1.3804801710530694,4.105085073999364) circle (0.8800038153897979cm);
+\draw(1.8103639531844014,2.779238844003117) circle (0.34050148067033853cm);
+\draw (1.3804801710530694,4.105085073999364)-- (2.0816807852199832,1.9424443105936122);
+\draw (2.291943892184633,3.033173799481546)-- (1.58,-0.66);
+\begin{scriptsize}
+\draw [fill=qqqqff] (1.58,-0.66) circle (2.5pt);
+\draw[color=qqqqff] (1.7211585147262944,-0.3049571424710945) node {$O$};
+\draw [fill=qqqqff] (-0.92,0.22) circle (2.5pt);
+\draw[color=qqqqff] (-0.7859335547011194,0.5705353262178444) node {$U$};
+\draw [fill=xdxdff] (0.41910088177697413,1.7225854102862712) circle (2.5pt);
+\draw[color=xdxdff] (0.5671002605454215,2.0827495903169204) node {$V$};
+\draw [fill=xdxdff] (3.0482797141449245,1.5464801565005062) circle (2.5pt);
+\draw[color=xdxdff] (3.193577666612236,1.9036715853578197) node {$W$};
+\draw [fill=xdxdff] (3.9976850160163657,0.42590937160057096) circle (2.5pt);
+\draw[color=xdxdff] (4.128762803620874,0.7894084433900791) node {$X$};
+\draw [fill=uuuuuu] (0.21141376953056765,3.4342436634391116) circle (1.5pt);
+\draw[color=uuuuuu] (0.34822714337318694,3.7143491910553976) node {$A$};
+\draw [fill=uuuuuu] (1.28130331367771,6.473702595675313) circle (1.5pt);
+\draw[color=uuuuuu] (1.4226951731277928,6.758675275360117) node {$B$};
+\draw [fill=uuuuuu] (2.8773090913572834,2.9203312415962617) circle (1.5pt);
+\draw[color=uuuuuu] (3.0144996616531348,3.1970127322846613) node {$C$};
+\draw [fill=uuuuuu] (1.7841376274645147,2.3876906138895686) circle (1.5pt);
+\draw[color=uuuuuu] (1.5619780658737603,2.4608031563416897) node {$D$};
+\draw [fill=uuuuuu] (1.6904332451371729,3.1491287624755926) circle (1.5pt);
+\draw[color=uuuuuu] (1.8206462952591285,3.4357834055634626) node {$G$};
+\draw [fill=uuuuuu] (13.707895309074665,0.832487526370778) circle (1.5pt);
+\draw[color=uuuuuu] (13.48061417370726,1.2072571216279817) node {$Q$};
+\draw [fill=uuuuuu] (1.9335160748224633,1.1738471887490982) circle (1.5pt);
+\draw[color=uuuuuu] (2.079314524644497,1.4460277949067832) node {$P$};
+\draw [fill=uuuuuu] (1.3804801710530694,4.105085073999364) circle (1.5pt);
+\draw[color=uuuuuu] (1.5619780658737603,4.45055876699837) node {$O_1$};
+\draw [fill=uuuuuu] (1.8103639531844014,2.779238844003117) circle (1.5pt);
+\draw[color=uuuuuu] (1.9798267441116626,3.1174225078583944) node {$O_2$};
+\draw [fill=uuuuuu] (2.0816807852199832,1.9424443105936122) circle (1.5pt);
+\draw[color=uuuuuu] (2.2185974173904643,2.2220324830628884) node {$Z$};
+\end{scriptsize}
+\end{tikzpicture}
+
+ By Monge D' Alembert's theorem we get that exsimilicenter of $\omega$ and $\omega_1$ (i.e. $B$), insimilicenter of $\omega$ and $\omega_2$ (i.e. $D$), and insimilicenter of $\omega_1$ and $\omega_2$ is collinear. But $AC$ is a common inner tangent of $\omega_1$ and $\omega_2$, we infer that $G$ is itself the insimilienter of $\omega_1$ and $\omega_2$. Also that, if we denote $O_1$ and $O_2$ as centers of $\omega_1$ and $\omega_2$ and $Z$ as the exsimilicenter we desire, then $(Z,G; O_1, O_2)$ is harmonic bundle and $(OZ,OG; OO_1, OO_2)$ is a harmonic pencil. Since $OO_1\perp UX$, $OO_2\perp VW$ $OG\perp PQ$ (pole and polar relation) and $(QG, QP; QU, QV)$ (or $(AC, QP; UX, VW)$) is harmonic pencil, we have $OZ\perp AC$. and since $OP\perp AC$ ($P$= pole of $AC$), $P, O, Z$ collinear.
+
+\usetikzlibrary{arrows}
+\definecolor{qqwuqq}{rgb}{0.12941176470588237,0.12941176470588237,0.12941176470588237}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{xdxdff}{rgb}{0.6588235294117647,0.6588235294117647,0.6588235294117647}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.324810008536108,-3.609649776437683) rectangle (15.447607225930392,4.514034049299589);
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (2.2333804056250472,2.729378603620717) -- (2.5371756014858766,2.670815117061131) -- (2.5957390880454625,2.9746103129219605) -- (2.291943892184633,3.0331737994815464) -- cycle; 
+\draw(1.58,-0.66) circle (2.6503584663211126cm);
+\draw (3.0482797141449245,1.5464801565005062)-- (-0.92,0.22);
+\draw (0.41910088177697413,1.7225854102862712)-- (3.9976850160163657,0.42590937160057096);
+\draw [dash pattern=on 4pt off 4pt] (1.6904332451371729,3.1491287624755926)-- (-0.92,0.22);
+\draw [dash pattern=on 4pt off 4pt] (1.6904332451371729,3.1491287624755926)-- (3.9976850160163657,0.42590937160057096);
+\draw (0.21141376953056765,3.4342436634391116)-- (13.707895309074665,0.832487526370778);
+\draw (0.41910088177697413,1.7225854102862712)-- (13.707895309074665,0.832487526370778);
+\draw (-0.92,0.22)-- (13.707895309074665,0.832487526370778);
+\draw (2.291943892184633,3.033173799481546)-- (1.58,-0.66);
+\draw (1.307496336314101,1.4006812561394455)-- (6.976114373651765,1.0400812558441552);
+\draw (0.75394696115199,0.7795516412534185)-- (6.976114373651765,1.0400812558441552);
+\draw [dash pattern=on 4pt off 4pt] (1.9335160748224633,1.1738471887490982)-- (13.707895309074665,0.832487526370778);
+\draw (2.0816807852199832,1.9424443105936122)-- (6.976114373651765,1.0400812558441552);
+\begin{scriptsize}
+\draw [fill=qqqqff] (1.58,-0.66) circle (2.5pt);
+\draw[color=qqqqff] (1.6796403830291953,-0.4010134359310406) node {$O$};
+\draw [fill=qqqqff] (-0.92,0.22) circle (2.5pt);
+\draw[color=qqqqff] (-0.8143451361827798,0.4886539130276193) node {$U$};
+\draw [fill=xdxdff] (0.41910088177697413,1.7225854102862712) circle (2.5pt);
+\draw[color=xdxdff] (0.5274482425745401,1.9908791088102746) node {$V$};
+\draw [fill=xdxdff] (3.0482797141449245,1.5464801565005062) circle (2.5pt);
+\draw[color=xdxdff] (3.1818655788118475,1.6700154747596103) node {$W$};
+\draw [fill=xdxdff] (3.9976850160163657,0.42590937160057096) circle (2.5pt);
+\draw[color=xdxdff] (4.100702349047838,0.6928398619689511) node {$X$};
+\draw [fill=uuuuuu] (1.6904332451371729,3.1491287624755926) circle (1.5pt);
+\draw[color=uuuuuu] (1.7963180681385276,3.347257198206264) node {$G$};
+\draw [fill=uuuuuu] (13.707895309074665,0.832487526370778) circle (1.5pt);
+\draw[color=uuuuuu] (13.551594842903745,1.1157964704902812) node {$Q$};
+\draw [fill=uuuuuu] (1.9335160748224633,1.1738471887490982) circle (1.5pt);
+\draw[color=uuuuuu] (2.029673438357192,1.3783212619862792) node {$P$};
+\draw [fill=uuuuuu] (2.0816807852199832,1.9424443105936122) circle (1.5pt);
+\draw[color=uuuuuu] (2.190105255382524,2.151310925835607) node {$Z$};
+\draw [fill=uuuuuu] (0.75394696115199,0.7795516412534185) circle (1.5pt);
+\draw[color=uuuuuu] (0.9066507191798698,0.9845340747422822) node {$U'$};
+\draw [fill=uuuuuu] (2.7867896729330677,0.8646692044935143) circle (1.5pt);
+\draw[color=uuuuuu] (2.933925497954516,1.0720423385742817) node {$X'$};
+\draw [fill=uuuuuu] (1.307496336314101,1.4006812561394455) circle (1.5pt);
+\draw[color=uuuuuu] (1.446285012810531,1.6116766322049443) node {$V'$};
+\draw [fill=uuuuuu] (2.394330285609581,1.3278839377876588) circle (1.5pt);
+\draw[color=uuuuuu] (2.54013831071052,1.5387530790116115) node {$W'$};
+\draw [fill=xdxdff] (6.976114373651765,1.0400812558441552) circle (2.5pt);
+\draw[color=xdxdff] (7.134322161890474,1.1741353130449474) node {$Q'$};
+\end{scriptsize}
+\end{tikzpicture}
+
+Now we try to locate the polars of $O_1$ and $O_2$. As $B, O, O_1$ are collinear, the polars of $O_1$ and $B$ (i.e. $UX$) are collinear. Moreover, the pole of $AO_1$, $U'$, lies on polar of $A$ which is $UW$, and with $AO_1$ bisects $\angle BAC$, $AB\perp OU$, $AO_1\perp OU'$ and $AC\perp OP$ we have $OU'$ bisects $\angle UOP$. So the polar of $O_1$ is the line passing through $U'$ and parallel to $VX$. Let this line intersect $VX$ at $X'$ and we have $\dfrac{UU'}{U'P}=\dfrac{XX'}{X'P}=\dfrac{r}{d}$ where $r$ is the radius of $\omega$ and $d$ is the distance $OP$ (so $AC$ is of distance $\dfrac{r^2}{d}$ from $O$.) Similarly if the polar of $O_2$ intersect $VX$ and $UW$ at $V'$ and $W'$ respectively then $V'W'\parallel VW$ and $\dfrac{VV'}{V'P}=\dfrac{WW'}{W'P}=\dfrac{r}{d}$. So $Q'=U'X'\cap V'W'$ is the pole of $O_1O_2$. Also notice that $U'V'W'X'$ is the image of $UVWX$ under the homothety at center $P$ and ratio $\dfrac{d}{r+d}$, if we draw the line parallel to $AC$ from $P$ (namely $l_1$) and $Q'$ (namely $l_2$) we see that $l_1, l_2 and AC$ are in that order, with $l_1$ at distance $d$ from $O$ (remember that $AC\perp OP$ and $l_1\perp OP$) and $AC$ at distance $\dfrac{r^2}{d}$ from $O$. So $l_2$ at distance $d+(\dfrac{r^2}{d}-d)(\dfrac{d}{r+d})$=$d+(r-d)=r$ from $O$, i.e. $l_2$ is tangent to $\omega$. $\blacksquare$
+
+Finally, as $OP$ and $l_2$ meet at the point of tangency of $l_2$ and $W'$ this point is also on the polar of $Q'$ (recall that $l_2$ passes through $Q'$). But with $Z\in O_1O_2$ and $O_1O_2$ has pole $Q'$ we have the polar of $Q'$ contain $Z$. So $Z$ is indeed the tangency point, or in other words, $Z\in\omega$.
+
+\item \emph {RMM 2012, \#6.} Let $ABC$ be a triangle and let $I$ and $O$ denote its incentre and circumcentre respectively. Let $\omega_A$ be the circle through $B$ and $C$ which is tangent to the incircle of the triangle $ABC$; the circles $\omega_B$ and $\omega_C$ are defined similarly. The circles $\omega_B$ and $\omega_C$ meet at a point $A'$ distinct from $A$; the points $B'$ and $C'$ are defined similarly. Prove that the lines $AA',BB'$ and $CC'$ are concurrent at a point on the line $IO$.\\
+\textbf {Solution.} Lines $AA', BB', CC'$ all pass through the radical centre of $\omega_A, \omega_B$ and $\omega_C$; the fact that the three lines of concurrent will be assumed below. Let $T_A, T_B, T_C$ be the points of tangency of the incircle of triangle $ABC$ (namely $\omega$) and circles $\omega_A, \omega_B, \omega_C$, respectively. Clearly the tangent to $\omega$ at $T_A$ is also tangent to $\omega_A$, and is therefore the radical axis of these two circles. Similarly the tangent to $\omega$ to $T_B$ is the radical axis of $\omega$ and $\omega_B$. Denote $Z_C$ as the intersection of the two tangents which is also the radical centre of $\omega$, $\omega_A$ and $\omega_B$. Since $C$ lies on both  $\omega_B$ and $\omega_A$, it is itself on the radical axis of these two circles. So $C, C'$ and $Z_C$ all lie on the radical axis of $\omega_A$ and $\omega_B$.
+
+Now let $L_A, L_B$ and $L_C$ be points of tangency of $\omega$ to $BC, CA$ and $AB$ respectively. We need to following lemma: $T_AL_A, T_BL_B$ and $CZ_C$ are concurrent. Why? By Pascal's theorem we have: $Z_C=T_AT_A\cap T_BT_B$, $T_AL_A\cap T_BL_B$ and $T_AL_B\cap T_BL_A$ are concurrent by considering the ordered pairs $(T_A, T_B, L_B)$ and $(T_B, T_A, L_A)$. By considering ordered pairs $(L_A, T_B, L_B)$ and $(L_B, T_A, L_A)$ we have $C=L_AL_A\cap L_BL_B$, $T_AL_A\cap T_BL_B$ and $T_AL_B\cap T_BL_A$. Now get it? $C$ and $Z_C$ both lie on the line pssing through $T_AL_A\cap T_BL_B$ and $T_AL_B\cap T_BL_A$, hence are collinear with $T_AL_A\cap  T_BL_B$. With lines $AA', BB', CC'$ concurrent we know that the required point is indeed $L_AT_A\cap L_BT_B\cap L_CT_C$ (these three lines all concur at the radical canter of $\omega_A, \omega_B$ and $\omega_C$. 
+
+\usetikzlibrary{arrows}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0.3333333333333333,0.3333333333333333,0.3333333333333333}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.08498276992587576,-7.737987034608734) rectangle (26.448636926579045,5.031191543874628);
+\draw(6.522732116926053,0.7951745024174304) circle (1.4562200013755806cm);
+\draw (0.9983067246667384,4.595082626464908)-- (10.855816726614487,2.0034275867717155);
+\draw (10.855816726614487,2.0034275867717155)-- (4.35596046480731,-7.446266933872603);
+\draw (0.9983067246667384,4.595082626464908)-- (4.35596046480731,-7.446266933872603);
+\draw (7.100007267261415,2.990873961316245)-- (2.38,-0.36);
+\draw (2.38,-0.36)-- (8.9,-0.84);
+\draw (8.9,-0.84)-- (7.100007267261415,2.990873961316245);
+\draw [shift={(5.626279637588814,-0.7863682560852762)},dash pattern=on 6pt off 6pt]  plot[domain=-0.016381040754369636:3.010999573768988,variable=\t]({1.*3.274159644125644*cos(\t r)+0.*3.274159644125644*sin(\t r)},{0.*3.274159644125644*cos(\t r)+1.*3.274159644125644*sin(\t r)});
+\draw [shift={(7.313531410206339,0.7528878637025217)},dash pattern=on 6pt off 6pt]  plot[domain=1.6659174553373621:5.495768098330666,variable=\t]({1.*2.2481490904147496*cos(\t r)+0.*2.2481490904147496*sin(\t r)},{0.*2.2481490904147496*cos(\t r)+1.*2.2481490904147496*sin(\t r)});
+\draw [shift={(5.041349810881467,0.8909637945564531)},dash pattern=on 6pt off 6pt]  plot[domain=-2.7021919474731986:0.7953177705890416,variable=\t]({1.*2.940696045355572*cos(\t r)+0.*2.940696045355572*sin(\t r)},{0.*2.940696045355572*cos(\t r)+1.*2.940696045355572*sin(\t r)});
+\draw (0.9983067246667384,4.595082626464908)-- (7.9759172676694465,0.7012084975794659);
+\draw (10.855816726614487,2.0034275867717155)-- (5.068589613655191,0.8729322839409046);
+\draw (7.240815379975886,2.06203405253891)-- (4.35596046480731,-7.446266933872603);
+\draw (5.6797498352170415,1.9825908426835408)-- (7.840714334443847,1.4144479207983365);
+\draw (7.840714334443847,1.4144479207983365)-- (6.4158150820903606,-0.6571152207673885);
+\draw (6.4158150820903606,-0.6571152207673885)-- (5.6797498352170415,1.9825908426835408);
+\begin{scriptsize}
+\draw [fill=qqqqff] (7.100007267261415,2.990873961316245) circle (2.5pt);
+\draw[color=qqqqff] (7.26048168386713,3.4035224611595134) node {$A$};
+\draw [fill=qqqqff] (2.38,-0.36) circle (2.5pt);
+\draw[color=qqqqff] (2.0565256025103738,-0.3103140374299026) node {$B$};
+\draw [fill=qqqqff] (8.9,-0.84) circle (2.5pt);
+\draw[color=qqqqff] (9.16324976647775,-0.7458874539311304) node {$C$};
+\draw [fill=uuuuuu] (6.522732116926053,0.7951745024174306) circle (1.5pt);
+\draw[color=uuuuuu] (6.687358767418148,1.1110307953635776) node {$I$};
+\draw [fill=uuuuuu] (4.35596046480731,-7.446266933872603) circle (1.5pt);
+\draw[color=uuuuuu] (4.71581593483365,-7.050239534869954) node {$I_A$};
+\draw [fill=uuuuuu] (10.855816726614487,2.0034275867717155) circle (1.5pt);
+\draw[color=uuuuuu] (11.06601784908837,2.3948261282093015) node {$I_B$};
+\draw [fill=uuuuuu] (0.9983067246667384,4.595082626464908) circle (1.5pt);
+\draw[color=uuuuuu] (1.2083036861658802,4.893642043926872) node {$I_C$};
+\draw [fill=uuuuuu] (6.4158150820903606,-0.6571152207673885) circle (1.5pt);
+\draw[color=uuuuuu] (6.618584017444269,-0.2644642041139839) node {$L_A$};
+\draw [fill=uuuuuu] (7.840714334443847,1.4144479207983365) circle (1.5pt);
+\draw[color=uuuuuu] (7.925304266947949,1.9363277950501143) node {$L_B$};
+\draw [fill=uuuuuu] (5.6797498352170415,1.9825908426835408) circle (1.5pt);
+\draw[color=uuuuuu] (5.747437184441817,1.913402878392155) node {$L_C$};
+\draw [fill=uuuuuu] (7.240815379975886,2.06203405253891) circle (1.5pt);
+\draw[color=uuuuuu] (7.283406600525089,2.5323756281570575) node {$T_A$};
+\draw [fill=uuuuuu] (5.068589613655191,0.8729322839409046) circle (1.5pt);
+\draw[color=uuuuuu] (5.266013934624673,1.2715052119692931) node {$T_B$};
+\draw [fill=uuuuuu] (7.9759172676694465,0.7012084975794659) circle (1.5pt);
+\draw[color=uuuuuu] (8.1774783501855,1.0881058787056181) node {$T_C$};
+\draw [fill=uuuuuu] (5.683204008253647,-0.013145554554637907) circle (1.5pt);
+\draw[color=uuuuuu] (5.655737517809981,0.2628088790190813) node {$O$};
+\end{scriptsize}
+\end{tikzpicture}
+
+We proceed with the following:
+
+\textbf {Lemma 2:} Line $L_AT_A$ passes through the excentre of $\triangle ABC$ opposite $A$ (namely $I_A$; define $I_B$ and $I_C$ similarly); similar condition for $L_BT_B$ and $L_CT_C$.\\
+Proof: Now let the perpendicular from $I_A$ to $BC$ be $L'_A$, we know that $L_A$ and $L'_A$ are reflections of each other in $BC$ (why? We have done this in the trigonometry lecture in the previous camp; what you need to see is that $I, B, C$ and $II_A$ all on the circle with diameter $II_A$, namely $\Gamma$!) This implies that the midpoint $M$ of $L_AL'_A$ lie on the perpendicular bisector of $BC$. Now, let $K$ be another intersection of $L_AL'_A$ and $\Gamma$ and $L$ another intersection of $L_AL'_A$ and $\omega$ then $\angle IKI_A=90^{\circ}$. We then obtain $K$ as the midpoint of $LL_A$ ($IK$ the perpendicular bisector of $LL_A$.) Moreover, by the power of point theorem $BL_A\cdot CL_A=KL_A\cdot L_AI_A=2KL_A\cdot\frac{1}{2} L_AI_A=LL_A\cdot LL_AM,$ implying that $LBMC$ is cyclic and with $MB=MC$ $LL_A$ bisects $\angle BLC$. Finally, let $LB$ and $LC$ intersect $\omega$ again at $X$ and $Y$ respectively; from th angle bisector condition we know that $L_AB=L_AC$ and $XY\parallel BC$, the tangent to $\omega$ at $L_A$. Now triangles $LXY$ and $LBC$ are similar, so they are homothetic at centre $L$. Same goes to their circumcircles and we conclude that $\omega$ and circle $LBMC$ is tangent to another. $\omega_A$ must therefore be the circumcircle of $LBMC$ and we conclude that $T_A=L$. and $T_A, L_A, I_A$ collinear. (Theoretically, there are two circles passing through both $B$ and $C$, and is tangent to $\omega$. However, one such circle has been degenerated to line $BC$.
+
+We are (finally) ready to present our proof, that is $I_AL_A$, $I_BL_B$ and $I_CL_C$ concur at $IO$. Now $L_AL_B$ is the polar of $C$ w.r.t. $\omega$, hence perpendicular to $IC$. But $I_AC$ and $I_BC$ are both perpendicular to $IC$, so $I_AI_B\parallel L_AL_B$. In a similar manner for the other sides we have triangles $I_AI_BI_C$ and $L_AL_BL_C$ homothetic, so the whole problem statement becomes proving that the center of homothety lies on $IO$. Now for triangle $I_AI_BI_C$, $I$ is its orthocenter (lies on Euler line) and $O$ is the nine-point circle (also on Euler's line), and the Euler's lines of $L_AL_BL_C$ is parallel or will coincide with that of $I_AI_BI_C$, which is $IO$. But they have a common point $I$ since $I$ is the circumcenter of $L_AL_BL_C$, the two Euler lines coincide. This means the center of homothety lies on the Euler's line, which is $IO$. Q.E.D. (Phew!)
+
+\end{enumerate}
+
+\section {Practice problems.}
+\begin {enumerate}
+\item Let $ABCD$ be a quadrilateral circumscribed around a circle $\omega$. Let $E, F, G, H$ be the point of tangency of lines $AB, BC, CD, DA$ with $\omega$. Prove that lines (diagonals) $AC, BD, EG, FH$ are concurrent.
+\item Starting from the previous practice problem, prove Brokard's theorem.
+
+\item Two circles $\omega_1$ and $\omega_2$ are internally tangent at $P$ (with $\omega_2$ lying inside $\omega_1$). Let $l$ be a line tangent to $\omega_2$ at $Q$ and intersect $\omega_1$ at points $A$ and $B$. Let $PQ$ intersect $\omega_1$ again at $M$. Prove that $MA=MB.$
+
+\item\emph {JOM 2013, G2.} Let $\omega_1$ and $\omega_2$ be two circles, with centres $O_1$ and $O_2$ respectively, intersecting at $X$ and $Y$.  Let a line tangent to both $\omega_1$ and $\omega_2$ at $A$ and $B$,  respectively.   Let $E, F$ be  points  of $O_1O_2$ such that $XE$ tangent to $\omega_1$ and $YF$ is tangent to $\omega_2$. Let $AE\cap\omega_1=A, C$ and $BF\cap\omega_2=B,D.$ Show that line $BO_2$ is tangent to the circumcircle of $\triangle ACD$ and line $AO_2$ is tangent to circumcircle of $\triangle BCD$.
+
+\item\emph {IMO 2005, G6.} Let $ABC$ be a triangle, and $M$ the midpoint of its side $BC$. Let $\gamma$ be the incircle of triangle $ABC$. The median $AM$ of triangle $ABC$ intersects the incircle $\gamma$ at two points $K$ and $L$. Let the lines passing through $K$ and $L$, parallel to $BC$, intersect the incircle $\gamma$ again in two points $X$ and $Y$. Let the lines $AX$ and $AY$ intersect $BC$ again at the points $P$ and $Q$. Prove that $BP = CQ$.
+
+\item\emph {RMM 2013, \#3.} Let $ABCD$ be a quadrilateral inscribed in a circle $\omega$. The lines $AB$ and $CD$ meet at $P$, the lines $AD$ and $BC$ meet at $Q$, and the diagonals $AC$ and $BD$ meet at $R$. Let $M$ be the midpoint of the segment $PQ$, and let $K$ be the common point of the segment $MR$ and the circle $\omega$. Prove that the circumcircle of the triangle $KPQ$ and $\omega$ are tangent to one another.
+\item\emph{IMO 2014, G7 (lemma).} Let $ABC$ be a triangle with circumcircle $\Omega$ and incentre $I$. Let the line passing through $I$ and perpendicular to $CI$ intersect the segment $BC$ and the arc $BC$ (not containing $A$) of $\Omega$ at points $U$ and $V$ , respectively. Let the line passing through $U$ and parallel to $AI$ intersect $AV$ at $X$, and let the line passing through $V$ and parallel to $AI$ intersect $AB$ at $Y$ . Prove that if the points $I, X,$ and $Y$ are collinear, then $VA=VC$.
+\\Note: The original problem asks that, if $W$ and $Z$ be the midpoints of $AX$ and $BC$, respectively, then the points $I, W ,$ and $Z$ are also collinear. Try it if you dare (after proving the lemma above)!
+\item\emph {RMM 2010, \#3.} Let $A_1A_2A_3A_4$ be a quadrilateral with no pair of parallel sides. For each $i=1, 2, 3, 4$, define $\omega_1$ to be the circle touching the quadrilateral externally, and which is tangent to the lines $A_{i-1}A_i, A_iA_{i+1}$ and $A_{i+1}A_{i+2}$ (indices are considered modulo $4$ so $A_0=A_4, A_5=A_1$ and $A_6=A_2$). Let $T_i$ be the point of tangency of $\omega_i$ with the side $A_iA_{i+1}$. Prove that the lines $A_1A_2, A_3A_4$ and $T_2T_4$ are concurrent if and only if the lines $A_2A_3, A_4A_1$ and $T_1T_3$ are concurrent.
+\item\emph {RMM 2011, \#3.} A triangle $ABC$ is inscribed in a circle $\omega$.
+A variable line $\ell$ chosen parallel to $BC$ meets segments $AB$, $AC$ at points $D$, $E$ respectively, and meets $\omega$ at points $K$, $L$ (where $D$ lies between $K$ and $E$).
+Circle $\gamma_1$ is tangent to the segments $KD$ and $BD$ and also tangent to $\omega$, while circle $\gamma_2$ is tangent to the segments $LE$ and $CE$ and also tangent to $\omega$.
+Determine the locus, as $\ell$ varies, of the meeting point of the common inner tangents to $\gamma_1$ and $\gamma_2$.
+\end {enumerate}
+
+\section {References.}
+\begin{enumerate}
+\item Alexander Remorov: 2010, \emph {Projective Geometry-Part 2.} Canadian IMO Training.
+\item Lindsey Shorer: 2015, \emph {Summary of Some Concepts in Projective Geometry.} Canadian IMO Training.
+\item Cosmin Phohata: 2012, AMY 2011-2012, \emph {Segment 5, Homothety and Inversion.} AwesomeMath LLC.
+\end{enumerate}
+
+\subsection {Problem credit.}
+\begin {enumerate}
+\item IMO 2004 (shortlist; solution's credit to an AoPS user), 2005 (shortlist), 2007 (shortlist and solution), 2008, 2012, 2014 (shortlist).
+\item APMO 2013.
+\item Romanian Masters in Mathematics (2010, 2011, 2012, 2013).
+\item Junior Olympiad of Mathematics 2013 (solution of G7 is creditted to Justin, the problem proposer).
+\end {enumerate}
+\vspace{5mm} \noindent \copyright \,\, 2016 IMO Malaysia Committee
+\end{document}
